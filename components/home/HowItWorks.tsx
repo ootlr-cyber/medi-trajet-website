@@ -1,27 +1,27 @@
 import SectionHeader from "@/components/ui/SectionHeader";
 import StepCard from "@/components/ui/StepCard";
-import { CalendarCheck, Users, Navigation, CheckCircle } from "lucide-react";
+import { ClipboardList, Users, Navigation, BarChart3 } from "lucide-react";
 
 const steps = [
   {
-    icon: CalendarCheck,
-    title: "Réservation",
-    description: "Le patient réserve son trajet en 1 clic depuis l'application mobile.",
+    icon: ClipboardList,
+    title: "Programmation",
+    description: "Le secrétariat programme les transports du jour depuis le portail web MediTrajet.",
   },
   {
     icon: Users,
-    title: "Matching",
-    description: "Notre algorithme trouve le transporteur le plus adapté en moins de 30 secondes.",
+    title: "Matching partagé",
+    description: "L’algorithme regroupe automatiquement les patients compatibles dans un même véhicule.",
   },
   {
     icon: Navigation,
-    title: "Suivi GPS",
-    description: "Patient et aidants suivent le transporteur en temps réel sur la carte.",
+    title: "Suivi temps réel",
+    description: "Patient, aidants et établissement suivent le transporteur sur la carte avec ETA dynamique.",
   },
   {
-    icon: CheckCircle,
-    title: "Arrivée",
-    description: "Le patient est pris en charge. Notifications automatiques à chaque étape.",
+    icon: BarChart3,
+    title: "Reporting",
+    description: "Dashboard avec taux de partage en temps réel et rapports exportés pour l’ARS et la CPAM.",
   },
 ];
 
@@ -31,8 +31,8 @@ export default function HowItWorks() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           tag="Comment ça marche"
-          title="Simple comme 1, 2, 3, 4"
-          description="De la réservation à l'arrivée, tout est automatisé et transparent."
+          title="Du secrétariat au reporting, tout est automatisé"
+          description="MediTrajet coordonne l’établissement, le patient et le transporteur en une seule plateforme."
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, i) => (

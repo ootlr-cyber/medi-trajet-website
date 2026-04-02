@@ -2,15 +2,17 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, MapPin, Plus } from "lucide-react";
+import { Menu, X, Plus } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
     { href: "/", label: "Accueil" },
+    { href: "/etablissements", label: "Établissements" },
     { href: "/patients", label: "Patients" },
     { href: "/transporteurs", label: "Transporteurs" },
+    { href: "/blog", label: "Blog" },
     { href: "/a-propos", label: "À propos" },
   ];
 
@@ -27,26 +29,26 @@ export default function Navbar() {
             </span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-600 hover:text-primary font-medium transition-colors"
+                className="text-gray-600 hover:text-primary font-medium transition-colors text-sm"
               >
                 {link.label}
               </Link>
             ))}
             <Link
-              href="/a-propos#contact"
-              className="bg-primary hover:bg-primary-dark text-white px-5 py-2.5 rounded-lg font-semibold transition-colors"
+              href="/etablissements#demo"
+              className="bg-primary hover:bg-primary-dark text-white px-5 py-2.5 rounded-lg font-semibold transition-colors text-sm"
             >
-              Nous contacter
+              Demander une démo
             </Link>
           </div>
 
           <button
-            className="md:hidden p-2"
+            className="lg:hidden p-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Menu"
           >
@@ -55,7 +57,7 @@ export default function Navbar() {
         </div>
 
         {isOpen && (
-          <div className="md:hidden pb-4 border-t border-gray-100">
+          <div className="lg:hidden pb-4 border-t border-gray-100">
             <div className="flex flex-col gap-2 pt-4">
               {links.map((link) => (
                 <Link
@@ -68,11 +70,11 @@ export default function Navbar() {
                 </Link>
               ))}
               <Link
-                href="/a-propos#contact"
+                href="/etablissements#demo"
                 className="mx-4 mt-2 bg-primary hover:bg-primary-dark text-white px-5 py-2.5 rounded-lg font-semibold text-center transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                Nous contacter
+                Demander une démo
               </Link>
             </div>
           </div>

@@ -3,25 +3,25 @@ import TestimonialCard from "@/components/ui/TestimonialCard";
 
 const testimonials = [
   {
-    name: "Marie D.",
-    role: "Patiente ALD — Dialyse 3x/semaine",
-    quote: "Mon taxi est confirmé pour 3 mois, je n'ai plus à y penser ! Avant, je passais des heures au téléphone chaque semaine.",
+    name: "Sophie M.",
+    role: "Secrétaire — Centre de dialyse",
+    quote: "Je programme les transports de mes 80 patients en 15 minutes. Avant, ça me prenait toute la matinée au téléphone. Notre taux de transport partagé est passé de 15% à 45%.",
     rating: 5,
-    image: "/images/avatar-marie.jpg",
+    image: "/images/avatar-sophie.jpg",
   },
   {
-    name: "Karim B.",
-    role: "Taxi conventionné CPAM — Île-de-France",
-    quote: "3 courses qui s'enchaînent parfaitement, zéro temps mort. Mon CA a augmenté de 30% depuis que j'utilise MediTrajet.",
+    name: "Dr. Martin L.",
+    role: "Directeur — Centre de dialyse, IDF",
+    quote: "MediTrajet nous a permis d’atteindre nos objectifs de transport partagé en 3 mois. Le reporting ARS est automatique. On a réduit nos coûts transport de 25%.",
     rating: 5,
     image: "/images/avatar-karim.jpg",
   },
   {
-    name: "Sophie M.",
-    role: "Secrétaire — Centre de dialyse",
-    quote: "Je réserve pour mes 10 patients du matin en 5 minutes. Avant, ça me prenait toute la matinée au téléphone.",
+    name: "Marie D.",
+    role: "Patiente ALD — Dialyse 3x/semaine",
+    quote: "Mon centre a tout organisé via MediTrajet. Je reçois juste la notification quand mon taxi arrive. C’est simple et rassurant.",
     rating: 5,
-    image: "/images/avatar-sophie.jpg",
+    image: "/images/avatar-marie.jpg",
   },
 ];
 
@@ -32,7 +32,7 @@ export default function Testimonials() {
         <SectionHeader
           tag="Témoignages"
           title="Ils nous font confiance"
-          description="Patients, transporteurs et professionnels de santé partagent leur expérience."
+          description="Établissements, patients et transporteurs partagent leur expérience."
         />
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((t, i) => (

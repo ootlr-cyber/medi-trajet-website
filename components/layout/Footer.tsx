@@ -16,18 +16,18 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Plateforme de mise en relation entre patients et transporteurs
-              médicaux conventionnés CPAM.
+              Plateforme de transport médical partagé pour les établissements
+              de santé, patients et transporteurs conventionnés CPAM.
             </p>
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-4">Navigation</h3>
+            <h3 className="text-white font-semibold mb-4">Solutions</h3>
             <ul className="space-y-3 text-sm">
-              <li><Link href="/" className="hover:text-primary-light transition-colors">Accueil</Link></li>
+              <li><Link href="/etablissements" className="hover:text-primary-light transition-colors">Établissements de santé</Link></li>
               <li><Link href="/patients" className="hover:text-primary-light transition-colors">Espace Patients</Link></li>
               <li><Link href="/transporteurs" className="hover:text-primary-light transition-colors">Espace Transporteurs</Link></li>
-              <li><Link href="/a-propos" className="hover:text-primary-light transition-colors">À propos</Link></li>
+              <li><Link href="/blog" className="hover:text-primary-light transition-colors">Blog &amp; Ressources</Link></li>
             </ul>
           </div>
 
@@ -62,7 +62,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-500">
           <p>&copy; {new Date().getFullYear()} MediTrajet. Tous droits réservés.</p>
-          <p>Données hébergées en France — Conforme RGPD & HDS</p>
+          <p>Données hébergées en France — Conforme RGPD &amp; HDS</p>
         </div>
       </div>
     </footer>

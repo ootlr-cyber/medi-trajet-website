@@ -25,9 +25,9 @@ export const metadata: Metadata = {
 };
 
 const advantages = [
-  { value: "+30%", label: "Chiffre d'affaires", description: "Grâce à l'optimisation des tournées et la réduction des temps morts" },
-  { value: "0", label: "Temps mort", description: "Des courses qui s'enchaînent parfaitement grâce au matching intelligent" },
-  { value: "<30s", label: "Matching", description: "Recevez des propositions de courses adaptées à votre profil et zone" },
+  { value: "+30%", label: "Chiffre d\u2019affaires", description: "Flux stabilis\u00e9 gr\u00e2ce aux \u00e9tablissements partenaires + optimisation des tourn\u00e9es" },
+  { value: "0", label: "Temps mort", description: "Courses group\u00e9es (transport partag\u00e9) et encha\u00een\u00e9es gr\u00e2ce au matching intelligent" },
+  { value: "<30s", label: "Matching", description: "Recevez des propositions adapt\u00e9es \u00e0 votre profil, zone et \u00e9quipements PMR" },
 ];
 
 const features = [
@@ -36,7 +36,7 @@ const features = [
   { icon: Brain, title: "Suggestions IA", description: "L'algorithme vous propose des courses qui s'enchaînent bien, réduisant les trajets à vide et maximisant vos revenus.", color: "accent" as const },
   { icon: BarChart3, title: "Historique & revenus", description: "Consultez vos statistiques, revenus par période et exportez en CSV. Suivez votre rentabilité en temps réel.", color: "primary" as const },
   { icon: Users, title: "Profil complet", description: "Photo, équipements PMR, zone de couverture, note moyenne. Les patients voient vos capacités et votre fiabilité.", color: "secondary" as const },
-  { icon: Zap, title: "Acceptation rapide", description: "Acceptez ou refusez une course en un geste. La course disparaît de la file pour les autres transporteurs.", color: "accent" as const },
+  { icon: Zap, title: "Courses group\u00e9es (partag\u00e9)", description: "Recevez des courses avec 2+ patients regroup\u00e9s par l\u2019algo. Plus de volume, moins de trajets \u00e0 vide.", color: "accent" as const },
 ];
 
 const journeySteps = [

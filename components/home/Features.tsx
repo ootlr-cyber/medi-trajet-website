@@ -1,40 +1,40 @@
 import SectionHeader from "@/components/ui/SectionHeader";
 import FeatureCard from "@/components/ui/FeatureCard";
 import {
-  Smartphone,
-  Truck,
-  Brain,
-  FileCheck,
-  MapPin,
-  Bell,
-  CalendarDays,
+  Building2,
   Users,
+  BarChart3,
+  Smartphone,
+  MapPin,
+  CalendarDays,
+  Brain,
+  Bell,
 } from "lucide-react";
 
 const features = [
   {
+    icon: Building2,
+    title: "Portail établissement",
+    description: "Vue des patients du jour, programmation des transports, gestion multi-secrétaires et multi-services depuis un portail web.",
+    color: "primary" as const,
+  },
+  {
+    icon: Users,
+    title: "Transport partagé intelligent",
+    description: "Algorithme de regroupement automatique des patients compatibles. Détour max 10 km, attente max 45 min (conforme décret 2025).",
+    color: "primary" as const,
+  },
+  {
+    icon: BarChart3,
+    title: "Reporting ARS / CPAM",
+    description: "Dashboard taux de partage en temps réel. Rapports exportés pour justifier vos objectifs auprès de l’ARS.",
+    color: "primary" as const,
+  },
+  {
     icon: Smartphone,
     title: "App Patient intuitive",
     description: "Réservation ponctuelle ou récurrente, suivi GPS temps réel, gestion des aidants. Conçue pour tous les âges.",
-    color: "primary" as const,
-  },
-  {
-    icon: Truck,
-    title: "App Transporteur complète",
-    description: "Planning intelligent, acceptation de courses, carte temps réel, historique des revenus et optimisation des tournées.",
     color: "secondary" as const,
-  },
-  {
-    icon: Brain,
-    title: "Matching intelligent",
-    description: "Algorithme qui trie par proximité, disponibilité, équipements PMR et note moyenne. Résultat en <30 secondes.",
-    color: "accent" as const,
-  },
-  {
-    icon: FileCheck,
-    title: "Facturation simplifiée",
-    description: "Compatible avec le processus CPAM existant. Estimation de prise en charge avant la course (ALD, CSS).",
-    color: "primary" as const,
   },
   {
     icon: MapPin,
@@ -45,20 +45,20 @@ const features = [
   {
     icon: CalendarDays,
     title: "Trajets récurrents ALD",
-    description: "Programmez vos trajets dialyse pour 1 à 3 mois en une seule fois. Plus besoin de réserver chaque semaine.",
+    description: "Programmez les dialyses pour 1 à 3 mois en une seule fois. Plus besoin de réserver chaque semaine.",
+    color: "secondary" as const,
+  },
+  {
+    icon: Brain,
+    title: "Matching & optimisation",
+    description: "Algorithme qui trie par proximité, disponibilité, équipements PMR et note. Suggestions de courses enchaînées.",
     color: "accent" as const,
   },
   {
-    icon: Users,
-    title: "Gestion des aidants",
-    description: "Ajoutez vos proches comme aidants. Ils peuvent réserver et suivre vos trajets à distance, en toute sérénité.",
-    color: "primary" as const,
-  },
-  {
     icon: Bell,
-    title: "Notifications intelligentes",
-    description: "Confirmation, en route, arrivée imminente, terminé. Alertes retard et anomalies pour patients et aidants.",
-    color: "secondary" as const,
+    title: "Notifications multi-acteurs",
+    description: "Patient, aidants, secrétariat et transporteur notifiés à chaque étape. Alertes retard et anomalies automatiques.",
+    color: "accent" as const,
   },
 ];
 
@@ -68,13 +68,44 @@ export default function Features() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           tag="Fonctionnalités"
-          title="Tout ce dont vous avez besoin"
-          description="Une plateforme complète pour patients, transporteurs et secrétariats médicaux."
+          title="Une plateforme, trois expériences"
+          description="Établissements, patients et transporteurs — chacun a les outils adaptés à son rôle."
         />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((f, i) => (
-            <FeatureCard key={i} {...f} />
-          ))}
+
+        <div className="mb-6">
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-3 h-3 bg-primary rounded-full" />
+            <span className="text-sm font-semibold text-primary uppercase tracking-wide">Établissements</span>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-6 mb-10">
+            {features.slice(0, 3).map((f, i) => (
+              <FeatureCard key={i} {...f} />
+            ))}
+          </div>
+        </div>
+
+        <div className="mb-6">
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-3 h-3 bg-secondary rounded-full" />
+            <span className="text-sm font-semibold text-secondary uppercase tracking-wide">Patients</span>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-6 mb-10">
+            {features.slice(3, 6).map((f, i) => (
+              <FeatureCard key={i} {...f} />
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-3 h-3 bg-accent rounded-full" />
+            <span className="text-sm font-semibold text-accent uppercase tracking-wide">Transporteurs</span>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-6 max-w-2xl">
+            {features.slice(6, 8).map((f, i) => (
+              <FeatureCard key={i} {...f} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

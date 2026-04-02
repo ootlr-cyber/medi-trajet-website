@@ -20,18 +20,18 @@ import {
 import { useState } from "react";
 
 const differentiators = [
-  { icon: Layers, title: "Multi-transporteur", description: "Seule app regroupant taxi, VSL et ambulance conventionnés dans une seule interface." },
-  { icon: Target, title: "Récurrence native", description: "Conçu pour les trajets réguliers ALD, le coeur de cible du transport médical." },
-  { icon: HeartHandshake, title: "Double valeur", description: "Réduit l'attente patient ET les temps morts transporteur. Tout le monde y gagne." },
-  { icon: Building, title: "Portail pro", description: "Les secrétariats médicaux deviennent un canal d'acquisition B2B2C." },
-  { icon: Ambulance, title: "Adapté au système existant", description: "Compatible avec les outils des transporteurs. Pas de certification CNDA requise pour le MVP." },
-  { icon: ShieldCheck, title: "Sécurité maximale", description: "Chiffrement AES-256, TLS 1.3, conforme RGPD. Hébergement HDS recommandé." },
+  { icon: Target, title: "Transport partag\u00e9 intelligent", description: "Algorithme de regroupement automatique des patients. Conforme au d\u00e9cret f\u00e9vrier 2025 (d\u00e9tour max 10km, attente max 45min)." },
+  { icon: Building, title: "Portail \u00e9tablissement", description: "Back-office complet pour les secr\u00e9tariats m\u00e9dicaux : planning, matching, reporting ARS/CPAM." },
+  { icon: Layers, title: "Multi-transporteur", description: "Seule plateforme regroupant taxi conventionn\u00e9, VSL et ambulance dans une seule interface." },
+  { icon: HeartHandshake, title: "Triple valeur", description: "R\u00e9duit les co\u00fbts \u00e9tablissement, l\u2019attente patient ET les temps morts transporteur." },
+  { icon: Scale, title: "Conforme d\u00e9cret 2025", description: "Align\u00e9 sur les objectifs r\u00e9glementaires : 50% de transport partag\u00e9, reporting, tiers payant conditionnel." },
+  { icon: ShieldCheck, title: "S\u00e9curit\u00e9 maximale", description: "Chiffrement AES-256, TLS 1.3, conforme RGPD. H\u00e9bergement HDS recommand\u00e9." },
 ];
 
 const objectives = [
-  { period: "3 mois", patients: "100", transporteurs: "30", courses: "500/mois", secretariats: "3" },
-  { period: "6 mois", patients: "500", transporteurs: "100", courses: "2 000/mois", secretariats: "10" },
-  { period: "12 mois", patients: "2 000", transporteurs: "400", courses: "10 000/mois", secretariats: "50" },
+  { period: "3 mois", etablissements: "3-5", patients: "200-400", transporteurs: "30", courses: "500/mois", partage: "15%" },
+  { period: "6 mois", etablissements: "15-25", patients: "1 000-2 000", transporteurs: "100", courses: "2 000/mois", partage: "30%" },
+  { period: "12 mois", etablissements: "50-100", patients: "5 000-10 000", transporteurs: "400", courses: "10 000/mois", partage: "45%" },
 ];
 
 const securityItems = [
@@ -61,10 +61,10 @@ export default function AProposPage() {
                 Notre <span className="text-primary">mission</span>
               </h1>
               <p className="text-lg text-gray-500 leading-relaxed">
-                MediTrajet est né d&apos;un constat simple : le transport médical conventionné
-                est un marché de 7 milliards d&apos;euros, essentiel pour 4,6 millions de patients,
-                mais qui reste mal digitalisé. Notre mission est de simplifier la vie
-                des patients et d&apos;optimiser l&apos;activité des transporteurs.
+                Le transport m\u00e9dical co\u00fbte 6,3 milliards d&apos;euros par an \u00e0 l&apos;Assurance Maladie,
+                pour 6,4 millions de patients. L&apos;\u00c9tat impose d\u00e9sormais 50% de transport partag\u00e9
+                d&apos;ici 2026. Notre mission : fournir aux \u00e9tablissements de sant\u00e9 la plateforme
+                qui rend ce transport partag\u00e9 op\u00e9rationnel, au b\u00e9n\u00e9fice des patients et des transporteurs.
               </p>
             </div>
             <div className="relative hidden lg:block">
@@ -121,6 +121,10 @@ export default function AProposPage() {
                 </div>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-500 flex items-center gap-2"><Building className="w-4 h-4" /> \u00c9tablissements</span>
+                    <span className="font-bold text-dark">{obj.etablissements}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-500 flex items-center gap-2"><Users className="w-4 h-4" /> Patients</span>
                     <span className="font-bold text-dark">{obj.patients}</span>
                   </div>
@@ -133,8 +137,8 @@ export default function AProposPage() {
                     <span className="font-bold text-dark">{obj.courses}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500 flex items-center gap-2"><Building className="w-4 h-4" /> Secrétariats</span>
-                    <span className="font-bold text-dark">{obj.secretariats}</span>
+                    <span className="text-sm text-gray-500 flex items-center gap-2"><Target className="w-4 h-4" /> Taux partag\u00e9</span>
+                    <span className="font-bold text-primary">{obj.partage}</span>
                   </div>
                 </div>
               </div>
@@ -220,9 +224,10 @@ export default function AProposPage() {
                   onChange={(e) => setFormData({ ...formData, role: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-dark bg-white"
                 >
+                  <option value="directeur">Directeur / gestionnaire \u00e9tablissement</option>
+                  <option value="secretariat">Secr\u00e9tariat m\u00e9dical</option>
                   <option value="patient">Patient</option>
-                  <option value="transporteur">Transporteur conventionné</option>
-                  <option value="secretariat">Secrétariat médical</option>
+                  <option value="transporteur">Transporteur conventionn\u00e9</option>
                   <option value="partenaire">Partenaire / Investisseur</option>
                   <option value="autre">Autre</option>
                 </select>

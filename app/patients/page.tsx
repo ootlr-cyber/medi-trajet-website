@@ -35,8 +35,8 @@ const features = [
 ];
 
 const journeySteps = [
-  { icon: Search, label: "Découverte", text: "Votre secrétaire ou un proche vous montre l'app MediTrajet" },
-  { icon: Smartphone, label: "Inscription", text: "Créez votre compte, ajoutez vos besoins PMR et vos aidants" },
+  { icon: Search, label: "Inscription", text: "Votre centre de soins vous inscrit sur MediTrajet, ou vous t\u00e9l\u00e9chargez l\u2019app vous-m\u00eame" },
+  { icon: Smartphone, label: "Profil", text: "Ajoutez vos besoins PMR, vos aidants et vos adresses favorites" },
   { icon: CalendarDays, label: "Réservation", text: "Programmez vos 12 trajets dialyse du mois en 2 minutes" },
   { icon: CheckCircle, label: "Confirmation", text: "Recevez le nom et la photo de votre transporteur" },
   { icon: MapPin, label: "Jour J", text: "Notification « Karim arrive dans 10 min » + suivi GPS" },
@@ -48,7 +48,8 @@ const faqs = [
   { q: "Quels types de transport sont disponibles ?", a: "MediTrajet regroupe taxis conventionnés, VSL (Véhicules Sanitaires Légers) et ambulances dans une seule application. Vous choisissez le type de transport adapté à votre prescription médicale." },
   { q: "Comment ajouter un aidant ?", a: "Depuis votre profil, ajoutez un aidant via son email. Il recevra une invitation et pourra ensuite réserver et suivre vos trajets à distance. Vous pouvez retirer un aidant à tout moment." },
   { q: "Puis-je annuler un trajet ?", a: "Oui, vous pouvez annuler à tout moment un trajet non commencé. Un avertissement s'affiche si l'annulation est faite moins de 2h avant le départ. Le transporteur est notifié immédiatement." },
-  { q: "L'app est-elle adaptée aux seniors ?", a: "Absolument. MediTrajet est conçue pour être accessible à tous : texte lisible, navigation simplifiée, taille de police ajustable et contraste élevé. Conforme WCAG AA." },
+  { q: "Mon \u00e9tablissement peut-il r\u00e9server pour moi ?", a: "Oui ! La plupart des patients sont inscrits par leur centre de soins (dialyse, radioth\u00e9rapie, etc.). Le secr\u00e9tariat programme vos transports et vous recevez juste les notifications. Vous pouvez aussi r\u00e9server vous-m\u00eame si vous pr\u00e9f\u00e9rez." },
+  { q: "L\u2019app est-elle adapt\u00e9e aux seniors ?", a: "Absolument. MediTrajet est con\u00e7ue pour \u00eatre accessible \u00e0 tous : texte lisible, navigation simplifi\u00e9e, taille de police ajustable et contraste \u00e9lev\u00e9. Conforme WCAG AA." },
 ];
 
 export default function PatientsPage() {
@@ -66,10 +67,12 @@ export default function PatientsPage() {
               <h1 className="text-4xl sm:text-5xl font-bold text-dark mb-6">
                 Votre transport médical, <span className="text-primary">en toute sérénité</span>
               </h1>
-              <p className="text-lg text-gray-500 leading-relaxed mb-8">
-                Plus besoin de chercher un taxi conventionné ni de rappeler chaque semaine.
-                MediTrajet organise vos transports médicaux avec un suivi GPS temps réel
-                et des notifications à chaque étape.
+              <p className="text-lg text-gray-500 leading-relaxed mb-4">
+                Votre \u00e9tablissement de sant\u00e9 utilise MediTrajet pour organiser vos transports.
+                Suivi GPS temps r\u00e9el, notifications \u00e0 chaque \u00e9tape, z\u00e9ro stress.
+              </p>
+              <p className="text-sm text-gray-400 mb-8">
+                Vous pouvez aussi r\u00e9server vous-m\u00eame si votre \u00e9tablissement n&apos;utilise pas encore MediTrajet.
               </p>
               <Link
                 href="/a-propos#contact"
