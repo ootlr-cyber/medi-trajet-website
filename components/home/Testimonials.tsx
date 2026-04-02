@@ -13,13 +13,13 @@ const testimonials = [
     name: "Dr. Martin L.",
     role: "Directeur — Centre de dialyse, IDF",
     quote: "MediTrajet nous a permis d'atteindre nos objectifs de transport partagé en 3 mois. Le reporting ARS est automatique. On a réduit nos coûts transport de 25%.",
-    image: "/images/avatar-karim.jpg",
+    image: "/images/avatar-doctor.jpg",
   },
   {
     name: "Marie D.",
     role: "Patiente ALD — Dialyse 3x/semaine",
     quote: "Mon centre a tout organisé via MediTrajet. Je reçois juste la notification quand mon taxi arrive. C'est simple et rassurant.",
-    image: "/images/avatar-marie.jpg",
+    image: "/images/avatar-marie-new.jpg",
   },
 ];
 

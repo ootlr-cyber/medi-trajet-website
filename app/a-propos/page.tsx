@@ -70,7 +70,7 @@ export default function AProposPage() {
             <div className="relative hidden lg:block">
               <div className="relative w-full aspect-[4/3] max-w-lg mx-auto rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/hero-mission.jpg"
+                  src="/images/hero-about.jpg"
                   alt="Équipe collaborant pour améliorer le transport médical"
                   fill
                   className="object-cover"

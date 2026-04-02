@@ -98,7 +98,7 @@ export default function EtablissementsPage() {
             <div className="relative hidden lg:block">
               <div className="relative w-full aspect-[4/3] max-w-lg mx-auto rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/hero-mission.jpg"
+                  src="/images/hero-etablissement.jpg"
                   alt="Plateforme de gestion du transport médical partagé pour établissements"
                   fill
                   className="object-cover"

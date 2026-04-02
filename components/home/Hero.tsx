@@ -8,7 +8,7 @@ const audiences = [
     icon: Building2,
     title: "Établissements de santé",
     desc: "Portail transport partagé, reporting ARS",
-    image: "/images/hero-mission.jpg",
+    image: "/images/card-etablissement.jpg",
     color: "from-primary/80 to-primary-dark/90",
   },
   {
@@ -16,7 +16,7 @@ const audiences = [
     icon: Heart,
     title: "Patients",
     desc: "Suivi GPS, notifications, aidants",
-    image: "/images/hero-patients-page.jpg",
+    image: "/images/card-patient.jpg",
     color: "from-secondary/80 to-secondary-dark/90",
   },
   {
@@ -24,7 +24,7 @@ const audiences = [
     icon: Truck,
     title: "Transporteurs",
     desc: "Planning, matching, optimisation",
-    image: "/images/hero-transporteur.jpg",
+    image: "/images/card-transporteur.jpg",
     color: "from-gray-700/80 to-gray-900/90",
   },
 ];
