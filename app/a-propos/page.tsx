@@ -20,12 +20,12 @@ import {
 import { useState } from "react";
 
 const differentiators = [
-  { icon: Target, title: "Transport partag\u00e9 intelligent", description: "Algorithme de regroupement automatique des patients. Conforme au d\u00e9cret f\u00e9vrier 2025 (d\u00e9tour max 10km, attente max 45min)." },
-  { icon: Building, title: "Portail \u00e9tablissement", description: "Back-office complet pour les secr\u00e9tariats m\u00e9dicaux : planning, matching, reporting ARS/CPAM." },
-  { icon: Layers, title: "Multi-transporteur", description: "Seule plateforme regroupant taxi conventionn\u00e9, VSL et ambulance dans une seule interface." },
-  { icon: HeartHandshake, title: "Triple valeur", description: "R\u00e9duit les co\u00fbts \u00e9tablissement, l\u2019attente patient ET les temps morts transporteur." },
-  { icon: Scale, title: "Conforme d\u00e9cret 2025", description: "Align\u00e9 sur les objectifs r\u00e9glementaires : 50% de transport partag\u00e9, reporting, tiers payant conditionnel." },
-  { icon: ShieldCheck, title: "S\u00e9curit\u00e9 maximale", description: "Chiffrement AES-256, TLS 1.3, conforme RGPD. H\u00e9bergement HDS recommand\u00e9." },
+  { icon: Target, title: "Transport partagé intelligent", description: "Algorithme de regroupement automatique des patients. Conforme au décret février 2025 (détour max 10km, attente max 45min)." },
+  { icon: Building, title: "Portail établissement", description: "Back-office complet pour les secrétariats médicaux : planning, matching, reporting ARS/CPAM." },
+  { icon: Layers, title: "Multi-transporteur", description: "Seule plateforme regroupant taxi conventionné, VSL et ambulance dans une seule interface." },
+  { icon: HeartHandshake, title: "Triple valeur", description: "Réduit les coûts établissement, l’attente patient ET les temps morts transporteur." },
+  { icon: Scale, title: "Conforme décret 2025", description: "Aligné sur les objectifs réglementaires : 50% de transport partagé, reporting, tiers payant conditionnel." },
+  { icon: ShieldCheck, title: "Sécurité maximale", description: "Chiffrement AES-256, TLS 1.3, conforme RGPD. Hébergement HDS recommandé." },
 ];
 
 const objectives = [
@@ -61,10 +61,10 @@ export default function AProposPage() {
                 Notre <span className="text-primary">mission</span>
               </h1>
               <p className="text-lg text-gray-500 leading-relaxed">
-                Le transport m\u00e9dical co\u00fbte 6,3 milliards d&apos;euros par an \u00e0 l&apos;Assurance Maladie,
-                pour 6,4 millions de patients. L&apos;\u00c9tat impose d\u00e9sormais 50% de transport partag\u00e9
-                d&apos;ici 2026. Notre mission : fournir aux \u00e9tablissements de sant\u00e9 la plateforme
-                qui rend ce transport partag\u00e9 op\u00e9rationnel, au b\u00e9n\u00e9fice des patients et des transporteurs.
+                Le transport médical coûte 6,3 milliards d&apos;euros par an à l&apos;Assurance Maladie,
+                pour 6,4 millions de patients. L&apos;État impose désormais 50% de transport partagé
+                d&apos;ici 2026. Notre mission : fournir aux établissements de santé la plateforme
+                qui rend ce transport partagé opérationnel, au bénéfice des patients et des transporteurs.
               </p>
             </div>
             <div className="relative hidden lg:block">
@@ -121,7 +121,7 @@ export default function AProposPage() {
                 </div>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500 flex items-center gap-2"><Building className="w-4 h-4" /> \u00c9tablissements</span>
+                    <span className="text-sm text-gray-500 flex items-center gap-2"><Building className="w-4 h-4" /> Établissements</span>
                     <span className="font-bold text-dark">{obj.etablissements}</span>
                   </div>
                   <div className="flex items-center justify-between">
@@ -137,7 +137,7 @@ export default function AProposPage() {
                     <span className="font-bold text-dark">{obj.courses}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500 flex items-center gap-2"><Target className="w-4 h-4" /> Taux partag\u00e9</span>
+                    <span className="text-sm text-gray-500 flex items-center gap-2"><Target className="w-4 h-4" /> Taux partagé</span>
                     <span className="font-bold text-primary">{obj.partage}</span>
                   </div>
                 </div>
@@ -224,10 +224,10 @@ export default function AProposPage() {
                   onChange={(e) => setFormData({ ...formData, role: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-dark bg-white"
                 >
-                  <option value="directeur">Directeur / gestionnaire \u00e9tablissement</option>
-                  <option value="secretariat">Secr\u00e9tariat m\u00e9dical</option>
+                  <option value="directeur">Directeur / gestionnaire établissement</option>
+                  <option value="secretariat">Secrétariat médical</option>
                   <option value="patient">Patient</option>
-                  <option value="transporteur">Transporteur conventionn\u00e9</option>
+                  <option value="transporteur">Transporteur conventionné</option>
                   <option value="partenaire">Partenaire / Investisseur</option>
                   <option value="autre">Autre</option>
                 </select>
