@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, MapPin, Clock, Shield } from "lucide-react";
 
 export default function Hero() {
@@ -52,47 +53,36 @@ export default function Hero() {
           </div>
 
           <div className="relative hidden lg:block">
-            <div className="relative w-full aspect-square max-w-md mx-auto">
+            <div className="relative w-full aspect-[4/5] max-w-md mx-auto">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl rotate-3" />
-              <div className="absolute inset-0 bg-white rounded-3xl shadow-2xl p-8 flex flex-col justify-center">
-                <div className="space-y-4">
-                  <div className="bg-gray-50 rounded-xl p-4 flex items-center gap-4">
-                    <div className="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center">
-                      <MapPin className="w-5 h-5 text-secondary" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-dark">Course confirmée</div>
-                      <div className="text-xs text-gray-400">Karim arrive dans 8 min</div>
-                    </div>
-                    <div className="ml-auto text-xs font-bold text-secondary bg-secondary/10 px-3 py-1 rounded-full">
-                      En route
-                    </div>
-                  </div>
-                  <div className="bg-gray-50 rounded-xl p-4 flex items-center gap-4">
-                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                      <Clock className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-dark">Prochain trajet</div>
-                      <div className="text-xs text-gray-400">Dialyse — Lun 14h00</div>
-                    </div>
-                    <div className="ml-auto text-xs font-bold text-primary bg-primary/10 px-3 py-1 rounded-full">
-                      Planifié
-                    </div>
-                  </div>
-                  <div className="bg-gray-50 rounded-xl p-4 flex items-center gap-4">
-                    <div className="w-10 h-10 bg-amber-50 rounded-full flex items-center justify-center">
-                      <Shield className="w-5 h-5 text-amber-500" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-dark">Prise en charge</div>
-                      <div className="text-xs text-gray-400">ALD — 100% CPAM</div>
-                    </div>
-                    <div className="ml-auto text-xs font-bold text-amber-600 bg-amber-50 px-3 py-1 rounded-full">
-                      Couvert
-                    </div>
-                  </div>
+              <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/hero-patient.jpg"
+                  alt="Patient accompagné pour son transport médical"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent" />
+              </div>
+              {/* Floating card overlay */}
+              <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg p-4 flex items-center gap-3 z-10">
+                <div className="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center">
+                  <MapPin className="w-5 h-5 text-secondary" />
                 </div>
+                <div>
+                  <div className="text-sm font-semibold text-dark">Course confirmée</div>
+                  <div className="text-xs text-gray-400">Karim arrive dans 8 min</div>
+                </div>
+                <div className="ml-2 text-xs font-bold text-secondary bg-secondary/10 px-3 py-1 rounded-full">
+                  En route
+                </div>
+              </div>
+              <div className="absolute -top-4 -right-4 bg-white rounded-xl shadow-lg p-3 flex items-center gap-2 z-10">
+                <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                  <Shield className="w-4 h-4 text-primary" />
+                </div>
+                <div className="text-xs font-bold text-primary">100% CPAM</div>
               </div>
             </div>
           </div>

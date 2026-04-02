@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SectionHeader from "@/components/ui/SectionHeader";
 import FeatureCard from "@/components/ui/FeatureCard";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   Smartphone,
@@ -56,26 +57,40 @@ export default function PatientsPage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-white to-secondary/5 py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-full px-4 py-1.5 text-sm font-semibold mb-6">
-              <Heart className="w-4 h-4" />
-              Espace Patients
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-full px-4 py-1.5 text-sm font-semibold mb-6">
+                <Heart className="w-4 h-4" />
+                Espace Patients
+              </div>
+              <h1 className="text-4xl sm:text-5xl font-bold text-dark mb-6">
+                Votre transport médical, <span className="text-primary">en toute sérénité</span>
+              </h1>
+              <p className="text-lg text-gray-500 leading-relaxed mb-8">
+                Plus besoin de chercher un taxi conventionné ni de rappeler chaque semaine.
+                MediTrajet organise vos transports médicaux avec un suivi GPS temps réel
+                et des notifications à chaque étape.
+              </p>
+              <Link
+                href="/a-propos#contact"
+                className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl font-semibold transition-colors shadow-lg shadow-primary/25"
+              >
+                Commencer gratuitement
+                <ArrowRight className="w-5 h-5" />
+              </Link>
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-dark mb-6">
-              Votre transport médical, <span className="text-primary">en toute sérénité</span>
-            </h1>
-            <p className="text-lg text-gray-500 leading-relaxed mb-8">
-              Plus besoin de chercher un taxi conventionné ni de rappeler chaque semaine.
-              MediTrajet organise vos transports médicaux avec un suivi GPS temps réel
-              et des notifications à chaque étape.
-            </p>
-            <Link
-              href="/a-propos#contact"
-              className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl font-semibold transition-colors shadow-lg shadow-primary/25"
-            >
-              Commencer gratuitement
-              <ArrowRight className="w-5 h-5" />
-            </Link>
+            <div className="relative hidden lg:block">
+              <div className="relative w-full aspect-[4/3] max-w-lg mx-auto rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/hero-patients-page.jpg"
+                  alt="Patient accompagné pour son transport médical"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
+              </div>
+            </div>
           </div>
         </div>
       </section>

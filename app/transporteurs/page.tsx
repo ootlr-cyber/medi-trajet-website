@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SectionHeader from "@/components/ui/SectionHeader";
 import FeatureCard from "@/components/ui/FeatureCard";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   Truck,
@@ -52,26 +53,40 @@ export default function TransporteursPage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-secondary/5 via-white to-primary/5 py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-secondary/10 text-secondary rounded-full px-4 py-1.5 text-sm font-semibold mb-6">
-              <Truck className="w-4 h-4" />
-              Espace Transporteurs
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 bg-secondary/10 text-secondary rounded-full px-4 py-1.5 text-sm font-semibold mb-6">
+                <Truck className="w-4 h-4" />
+                Espace Transporteurs
+              </div>
+              <h1 className="text-4xl sm:text-5xl font-bold text-dark mb-6">
+                Optimisez votre activité, <span className="text-secondary">maximisez vos revenus</span>
+              </h1>
+              <p className="text-lg text-gray-500 leading-relaxed mb-8">
+                Fini les temps morts et le flux de courses irrégulier. MediTrajet vous
+                connecte aux patients de votre zone avec un matching intelligent
+                et des suggestions d&apos;optimisation de tournées.
+              </p>
+              <Link
+                href="/a-propos#contact"
+                className="inline-flex items-center justify-center gap-2 bg-secondary hover:bg-secondary-dark text-white px-8 py-4 rounded-xl font-semibold transition-colors shadow-lg shadow-secondary/25"
+              >
+                Rejoindre MediTrajet
+                <ArrowRight className="w-5 h-5" />
+              </Link>
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-dark mb-6">
-              Optimisez votre activité, <span className="text-secondary">maximisez vos revenus</span>
-            </h1>
-            <p className="text-lg text-gray-500 leading-relaxed mb-8">
-              Fini les temps morts et le flux de courses irrégulier. MediTrajet vous
-              connecte aux patients de votre zone avec un matching intelligent
-              et des suggestions d&apos;optimisation de tournées.
-            </p>
-            <Link
-              href="/a-propos#contact"
-              className="inline-flex items-center justify-center gap-2 bg-secondary hover:bg-secondary-dark text-white px-8 py-4 rounded-xl font-semibold transition-colors shadow-lg shadow-secondary/25"
-            >
-              Rejoindre MediTrajet
-              <ArrowRight className="w-5 h-5" />
-            </Link>
+            <div className="relative hidden lg:block">
+              <div className="relative w-full aspect-[4/3] max-w-lg mx-auto rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/hero-transporteur.jpg"
+                  alt="Transporteur professionnel conventionné CPAM"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-secondary/30 via-transparent to-transparent" />
+              </div>
+            </div>
           </div>
         </div>
       </section>

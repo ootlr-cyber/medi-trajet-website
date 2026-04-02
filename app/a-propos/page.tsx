@@ -1,6 +1,7 @@
 "use client";
 
 import SectionHeader from "@/components/ui/SectionHeader";
+import Image from "next/image";
 import {
   Target,
   Layers,
@@ -52,17 +53,32 @@ export default function AProposPage() {
   return (
     <>
       {/* Hero */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-dark mb-6">
-            Notre <span className="text-primary">mission</span>
-          </h1>
-          <p className="text-lg text-gray-500 leading-relaxed">
-            MediTrajet est né d&apos;un constat simple : le transport médical conventionné
-            est un marché de 7 milliards d&apos;euros, essentiel pour 4,6 millions de patients,
-            mais qui reste mal digitalisé. Notre mission est de simplifier la vie
-            des patients et d&apos;optimiser l&apos;activité des transporteurs.
-          </p>
+      <section className="relative py-20 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <h1 className="text-4xl sm:text-5xl font-bold text-dark mb-6">
+                Notre <span className="text-primary">mission</span>
+              </h1>
+              <p className="text-lg text-gray-500 leading-relaxed">
+                MediTrajet est né d&apos;un constat simple : le transport médical conventionné
+                est un marché de 7 milliards d&apos;euros, essentiel pour 4,6 millions de patients,
+                mais qui reste mal digitalisé. Notre mission est de simplifier la vie
+                des patients et d&apos;optimiser l&apos;activité des transporteurs.
+              </p>
+            </div>
+            <div className="relative hidden lg:block">
+              <div className="relative w-full aspect-[4/3] max-w-lg mx-auto rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/hero-mission.jpg"
+                  alt="Équipe collaborant pour améliorer le transport médical"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

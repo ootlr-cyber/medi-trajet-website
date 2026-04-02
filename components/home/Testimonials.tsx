@@ -7,18 +7,21 @@ const testimonials = [
     role: "Patiente ALD — Dialyse 3x/semaine",
     quote: "Mon taxi est confirmé pour 3 mois, je n'ai plus à y penser ! Avant, je passais des heures au téléphone chaque semaine.",
     rating: 5,
+    image: "/images/avatar-marie.jpg",
   },
   {
     name: "Karim B.",
     role: "Taxi conventionné CPAM — Île-de-France",
     quote: "3 courses qui s'enchaînent parfaitement, zéro temps mort. Mon CA a augmenté de 30% depuis que j'utilise MediTrajet.",
     rating: 5,
+    image: "/images/avatar-karim.jpg",
   },
   {
     name: "Sophie M.",
     role: "Secrétaire — Centre de dialyse",
     quote: "Je réserve pour mes 10 patients du matin en 5 minutes. Avant, ça me prenait toute la matinée au téléphone.",
     rating: 5,
+    image: "/images/avatar-sophie.jpg",
   },
 ];
 
