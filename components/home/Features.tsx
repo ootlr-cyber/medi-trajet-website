@@ -1,5 +1,4 @@
 import SectionHeader from "@/components/ui/SectionHeader";
-import FeatureCard from "@/components/ui/FeatureCard";
 import {
   Building2,
   Users,
@@ -10,61 +9,40 @@ import {
   Brain,
   Bell,
 } from "lucide-react";
+import { type LucideIcon } from "lucide-react";
 
-const features = [
-  {
-    icon: Building2,
-    title: "Portail établissement",
-    description: "Vue des patients du jour, programmation des transports, gestion multi-secrétaires et multi-services depuis un portail web.",
-    color: "primary" as const,
-  },
-  {
-    icon: Users,
-    title: "Transport partagé intelligent",
-    description: "Algorithme de regroupement automatique des patients compatibles. Détour max 10 km, attente max 45 min (conforme décret 2025).",
-    color: "primary" as const,
-  },
-  {
-    icon: BarChart3,
-    title: "Reporting ARS / CPAM",
-    description: "Dashboard taux de partage en temps réel. Rapports exportés pour justifier vos objectifs auprès de l’ARS.",
-    color: "primary" as const,
-  },
-  {
-    icon: Smartphone,
-    title: "App Patient intuitive",
-    description: "Réservation ponctuelle ou récurrente, suivi GPS temps réel, gestion des aidants. Conçue pour tous les âges.",
-    color: "secondary" as const,
-  },
-  {
-    icon: MapPin,
-    title: "Suivi GPS temps réel",
-    description: "Position du transporteur mise à jour toutes les 5 secondes. ETA dynamique et notifications push à chaque étape.",
-    color: "secondary" as const,
-  },
-  {
-    icon: CalendarDays,
-    title: "Trajets récurrents ALD",
-    description: "Programmez les dialyses pour 1 à 3 mois en une seule fois. Plus besoin de réserver chaque semaine.",
-    color: "secondary" as const,
-  },
-  {
-    icon: Brain,
-    title: "Matching & optimisation",
-    description: "Algorithme qui trie par proximité, disponibilité, équipements PMR et note. Suggestions de courses enchaînées.",
-    color: "accent" as const,
-  },
-  {
-    icon: Bell,
-    title: "Notifications multi-acteurs",
-    description: "Patient, aidants, secrétariat et transporteur notifiés à chaque étape. Alertes retard et anomalies automatiques.",
-    color: "accent" as const,
-  },
+interface Feature {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}
+
+const etablissementFeatures: Feature[] = [
+  { icon: Building2, title: "Portail établissement", description: "Vue des patients du jour, programmation des transports, gestion multi-secrétaires depuis un portail web." },
+  { icon: Users, title: "Transport partagé intelligent", description: "Regroupement automatique des patients compatibles. Détour max 10 km, attente max 45 min." },
+  { icon: BarChart3, title: "Reporting ARS / CPAM", description: "Dashboard taux de partage en temps réel. Rapports exportés pour l'ARS." },
+];
+
+const patientFeatures: Feature[] = [
+  { icon: Smartphone, title: "App Patient intuitive", description: "Réservation ponctuelle ou récurrente, suivi GPS, gestion des aidants. Pour tous les âges." },
+  { icon: MapPin, title: "Suivi GPS temps réel", description: "Position mise à jour toutes les 5 secondes. ETA dynamique et notifications push." },
+  { icon: CalendarDays, title: "Trajets récurrents ALD", description: "Programmez vos dialyses pour 1 à 3 mois. Plus de réservation hebdomadaire." },
+];
+
+const transporteurFeatures: Feature[] = [
+  { icon: Brain, title: "Matching & optimisation", description: "Algorithme par proximité, disponibilité, équipements PMR. Suggestions de courses enchaînées." },
+  { icon: Bell, title: "Notifications multi-acteurs", description: "Patient, aidants, secrétariat et transporteur notifiés à chaque étape." },
+];
+
+const groups = [
+  { label: "Établissements", color: "bg-primary", textColor: "text-primary", iconBg: "bg-primary/10", features: etablissementFeatures },
+  { label: "Patients", color: "bg-secondary", textColor: "text-secondary", iconBg: "bg-secondary/10", features: patientFeatures },
+  { label: "Transporteurs", color: "bg-accent", textColor: "text-accent", iconBg: "bg-amber-50", features: transporteurFeatures },
 ];
 
 export default function Features() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           tag="Fonctionnalités"
@@ -72,40 +50,27 @@ export default function Features() {
           description="Établissements, patients et transporteurs — chacun a les outils adaptés à son rôle."
         />
 
-        <div className="mb-6">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-3 h-3 bg-primary rounded-full" />
-            <span className="text-sm font-semibold text-primary uppercase tracking-wide">Établissements</span>
-          </div>
-          <div className="grid sm:grid-cols-3 gap-6 mb-10">
-            {features.slice(0, 3).map((f, i) => (
-              <FeatureCard key={i} {...f} />
-            ))}
-          </div>
-        </div>
-
-        <div className="mb-6">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-3 h-3 bg-secondary rounded-full" />
-            <span className="text-sm font-semibold text-secondary uppercase tracking-wide">Patients</span>
-          </div>
-          <div className="grid sm:grid-cols-3 gap-6 mb-10">
-            {features.slice(3, 6).map((f, i) => (
-              <FeatureCard key={i} {...f} />
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-3 h-3 bg-accent rounded-full" />
-            <span className="text-sm font-semibold text-accent uppercase tracking-wide">Transporteurs</span>
-          </div>
-          <div className="grid sm:grid-cols-2 gap-6 max-w-2xl">
-            {features.slice(6, 8).map((f, i) => (
-              <FeatureCard key={i} {...f} />
-            ))}
-          </div>
+        <div className="space-y-16">
+          {groups.map((group, gi) => (
+            <div key={gi}>
+              <div className="flex items-center gap-3 mb-6">
+                <div className={`w-4 h-4 ${group.color} rounded-full`} />
+                <span className={`text-sm font-bold ${group.textColor} uppercase tracking-wider`}>{group.label}</span>
+                <div className="flex-1 h-px bg-gray-200 ml-2" />
+              </div>
+              <div className={`grid sm:grid-cols-${group.features.length} gap-6`}>
+                {group.features.map((f, i) => (
+                  <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100 hover:border-primary/20 hover:shadow-xl transition-all group/card">
+                    <div className={`w-14 h-14 ${group.iconBg} rounded-2xl flex items-center justify-center mb-5 group-hover/card:scale-110 transition-transform`}>
+                      <f.icon className={`w-7 h-7 ${group.textColor}`} />
+                    </div>
+                    <h3 className="text-lg font-bold text-dark mb-2">{f.title}</h3>
+                    <p className="text-gray-500 text-sm leading-relaxed">{f.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

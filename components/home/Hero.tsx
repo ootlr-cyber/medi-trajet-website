@@ -1,103 +1,119 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Building2, Heart, Truck, ShieldCheck, Scale } from "lucide-react";
+import { ArrowRight, Building2, Heart, Truck, ShieldCheck } from "lucide-react";
+
+const audiences = [
+  {
+    href: "/etablissements",
+    icon: Building2,
+    title: "Établissements de santé",
+    desc: "Portail transport partagé, reporting ARS",
+    image: "/images/hero-mission.jpg",
+    color: "from-primary/80 to-primary-dark/90",
+  },
+  {
+    href: "/patients",
+    icon: Heart,
+    title: "Patients",
+    desc: "Suivi GPS, notifications, aidants",
+    image: "/images/hero-patients-page.jpg",
+    color: "from-secondary/80 to-secondary-dark/90",
+  },
+  {
+    href: "/transporteurs",
+    icon: Truck,
+    title: "Transporteurs",
+    desc: "Planning, matching, optimisation",
+    image: "/images/hero-transporteur.jpg",
+    color: "from-gray-700/80 to-gray-900/90",
+  },
+];
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-primary/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 bg-secondary/10 text-secondary rounded-full px-4 py-1.5 text-sm font-semibold mb-6">
-              <ShieldCheck className="w-4 h-4" />
+    <>
+      {/* Hero principal — fond dégradé immersif */}
+      <section className="relative gradient-hero overflow-hidden">
+        {/* Formes décoratives */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-white/5 rounded-full translate-y-1/2 -translate-x-1/3" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-28 lg:pt-28 lg:pb-36">
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white rounded-full px-5 py-2 text-sm font-semibold mb-8 border border-white/20">
+              <ShieldCheck className="w-4 h-4 text-secondary-light" />
               Conforme décret février 2025 — Transport partagé
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.4rem] font-bold text-dark leading-tight mb-6">
-              Le transport médical partagé,{" "}
-              <span className="text-primary">intelligent</span>
+
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6 tracking-tight">
+              Le transport médical
+              <br />
+              partagé, <span className="text-secondary-light">intelligent</span>
             </h1>
-            <p className="text-lg text-gray-500 leading-relaxed mb-8 max-w-lg">
-              MediTrajet aide les établissements de santé à atteindre 50% de transport
-              partagé — l’objectif imposé par l’État d’ici 2026. Un portail
-              pour le secrétariat, une app pour le patient, une app pour le transporteur.
+
+            <p className="text-lg sm:text-xl text-blue-100/80 leading-relaxed mb-10 max-w-2xl mx-auto">
+              MediTrajet aide les établissements à atteindre 50% de transport
+              partagé — l&apos;objectif imposé par l&apos;État d&apos;ici 2026.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 mb-10">
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
               <Link
                 href="/etablissements"
-                className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white px-7 py-3.5 rounded-xl font-semibold transition-colors shadow-lg shadow-primary/25"
+                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-primary px-8 py-4 rounded-2xl font-bold transition-all shadow-xl shadow-black/10 text-lg"
               >
-                <Building2 className="w-5 h-5" />
-                Établissements de santé
-                <ArrowRight className="w-4 h-4" />
+                Demander une démo
+                <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
-                href="/patients"
-                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-dark px-6 py-3.5 rounded-xl font-semibold border-2 border-gray-200 hover:border-primary/30 transition-colors text-sm"
+                href="/blog/transport-medical-partage-guide"
+                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-2xl font-semibold border border-white/20 transition-all backdrop-blur-sm"
               >
-                <Heart className="w-4 h-4 text-primary" />
-                Patients
+                Comprendre le décret 2025
               </Link>
-              <Link
-                href="/transporteurs"
-                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-dark px-6 py-3.5 rounded-xl font-semibold border-2 border-gray-200 hover:border-secondary/30 transition-colors text-sm"
-              >
-                <Truck className="w-4 h-4 text-secondary" />
-                Transporteurs
-              </Link>
-            </div>
-
-            <div className="flex flex-wrap gap-6 text-sm text-gray-500">
-              <div className="flex items-center gap-2">
-                <Scale className="w-4 h-4 text-secondary" />
-                Décret 2025 conforme
-              </div>
-              <div className="flex items-center gap-2">
-                <Building2 className="w-4 h-4 text-secondary" />
-                Portail établissement
-              </div>
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-secondary" />
-                RGPD &amp; HDS
-              </div>
-            </div>
-          </div>
-
-          <div className="relative hidden lg:block">
-            <div className="relative w-full aspect-[4/5] max-w-md mx-auto">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl rotate-3" />
-              <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/hero-patient.jpg"
-                  alt="Plateforme de transport médical partagé"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent" />
-              </div>
-              <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg p-4 flex items-center gap-3 z-10">
-                <div className="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center">
-                  <Building2 className="w-5 h-5 text-secondary" />
-                </div>
-                <div>
-                  <div className="text-sm font-semibold text-dark">Taux de partage</div>
-                  <div className="text-xs text-gray-400">47% — Objectif 50% atteint</div>
-                </div>
-                <div className="ml-2 text-xs font-bold text-secondary bg-secondary/10 px-3 py-1 rounded-full">
-                  +28%
-                </div>
-              </div>
-              <div className="absolute -top-4 -right-4 bg-white rounded-xl shadow-lg p-3 flex items-center gap-2 z-10">
-                <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
-                  <ShieldCheck className="w-4 h-4 text-primary" />
-                </div>
-                <div className="text-xs font-bold text-primary">Décret 2025</div>
-              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+
+        {/* Vague de transition */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 100" preserveAspectRatio="none" className="w-full h-[50px] sm:h-[80px] lg:h-[100px]">
+            <path d="M0,40 C360,100 720,0 1080,60 C1260,80 1380,50 1440,40 L1440,100 L0,100 Z" fill="#ffffff" />
+          </svg>
+        </div>
+      </section>
+
+      {/* Cartes audience — style AleHop */}
+      <section className="relative -mt-6 sm:-mt-10 lg:-mt-16 z-10 pb-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-5">
+            {audiences.map((a, i) => (
+              <Link
+                key={i}
+                href={a.href}
+                className="group relative h-64 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1"
+              >
+                <Image
+                  src={a.image}
+                  alt={a.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className={`absolute inset-0 bg-gradient-to-t ${a.color}`} />
+                <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                  <div className="flex items-center gap-2 mb-2">
+                    <a.icon className="w-5 h-5 text-white/80" />
+                    <span className="text-white text-xl font-bold">{a.title}</span>
+                  </div>
+                  <p className="text-white/70 text-sm">{a.desc}</p>
+                  <div className="mt-3 inline-flex items-center gap-1 text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+                    Découvrir <ArrowRight className="w-4 h-4" />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

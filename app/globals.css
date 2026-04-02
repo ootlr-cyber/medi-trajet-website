@@ -1,24 +1,24 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #0369A1;
-  --color-primary-dark: #075985;
-  --color-primary-light: #0ea5e9;
-  --color-secondary: #059669;
-  --color-secondary-dark: #047857;
-  --color-secondary-light: #34d399;
-  --color-accent: #f59e0b;
-  --color-dark: #0f172a;
-  --color-gray-50: #f8fafc;
-  --color-gray-100: #f1f5f9;
-  --color-gray-200: #e2e8f0;
-  --color-gray-300: #cbd5e1;
-  --color-gray-400: #94a3b8;
-  --color-gray-500: #64748b;
+  --color-primary: #1E40AF;
+  --color-primary-dark: #1E3A8A;
+  --color-primary-light: #3B82F6;
+  --color-secondary: #10B981;
+  --color-secondary-dark: #059669;
+  --color-secondary-light: #34D399;
+  --color-accent: #F59E0B;
+  --color-dark: #0F172A;
+  --color-gray-50: #F8FAFC;
+  --color-gray-100: #F1F5F9;
+  --color-gray-200: #E2E8F0;
+  --color-gray-300: #CBD5E1;
+  --color-gray-400: #94A3B8;
+  --color-gray-500: #64748B;
   --color-gray-600: #475569;
   --color-gray-700: #334155;
-  --color-gray-800: #1e293b;
-  --color-gray-900: #0f172a;
+  --color-gray-800: #1E293B;
+  --color-gray-900: #0F172A;
 }
 
 html {
@@ -27,6 +27,14 @@ html {
 
 body {
   background: #ffffff;
-  color: #334155;
+  color: #475569;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.gradient-hero {
+  background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 40%, #0F766E 100%);
+}
+
+.gradient-cta {
+  background: linear-gradient(135deg, #1E40AF 0%, #10B981 100%);
 }
