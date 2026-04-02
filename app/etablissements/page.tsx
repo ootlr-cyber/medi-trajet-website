@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SectionHeader from "@/components/ui/SectionHeader";
 import FeatureCard from "@/components/ui/FeatureCard";
+import TrustBar from "@/components/home/TrustBar";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -109,6 +110,8 @@ export default function EtablissementsPage() {
           </div>
         </div>
       </section>
+
+      <TrustBar />
 
       {/* Regulation Context */}
       <section className="py-16 bg-dark">
