@@ -56,10 +56,10 @@ export default function Hero() {
 
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
               <Link
-                href="/etablissements"
+                href="/etablissements#demo"
                 className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-primary px-8 py-4 rounded-2xl font-bold transition-all shadow-xl shadow-black/10 text-lg"
               >
-                Essayer gratuitement
+                Demander une démo
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
@@ -68,6 +68,17 @@ export default function Hero() {
               >
                 Je suis patient
               </Link>
+            </div>
+
+            <div className="flex items-center justify-center gap-3 mt-4">
+              <div className="flex -space-x-2">
+                <div className="w-8 h-8 rounded-full bg-blue-200 border-2 border-white/30" />
+                <div className="w-8 h-8 rounded-full bg-emerald-200 border-2 border-white/30" />
+                <div className="w-8 h-8 rounded-full bg-amber-200 border-2 border-white/30" />
+              </div>
+              <p className="text-blue-100/70 text-sm">
+                <span className="font-semibold text-white">12 établissements</span> nous font déjà confiance
+              </p>
             </div>
           </div>
         </div>

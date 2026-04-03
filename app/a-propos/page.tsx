@@ -42,12 +42,33 @@ const securityItems = [
 ];
 
 export default function AProposPage() {
-  const [formData, setFormData] = useState({ name: "", email: "", role: "patient", message: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", role: "patient", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [rgpd, setRgpd] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (!rgpd) {
+      setError("Veuillez accepter la politique de confidentialité.");
+      return;
+    }
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error("Erreur");
+      setSubmitted(true);
+    } catch {
+      setError("Une erreur est survenue. Réessayez ou contactez-nous à contact@meditrajet.fr");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -186,13 +207,13 @@ export default function AProposPage() {
                 <Mail className="w-8 h-8 text-secondary" />
               </div>
               <h3 className="text-xl font-bold text-dark mb-2">Message envoyé !</h3>
-              <p className="text-gray-500">Nous vous répondrons dans les plus brefs délais.</p>
+              <p className="text-gray-500">Nous vous recontacterons <strong>sous 24h</strong>.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-dark mb-2">Nom complet</label>
+                  <label htmlFor="name" className="block text-sm font-semibold text-dark mb-2">Nom complet *</label>
                   <input
                     type="text"
                     id="name"
@@ -204,7 +225,7 @@ export default function AProposPage() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-dark mb-2">Email</label>
+                  <label htmlFor="email" className="block text-sm font-semibold text-dark mb-2">Email *</label>
                   <input
                     type="email"
                     id="email"
@@ -215,6 +236,17 @@ export default function AProposPage() {
                     placeholder="votre@email.com"
                   />
                 </div>
+              </div>
+              <div>
+                <label htmlFor="phone" className="block text-sm font-semibold text-dark mb-2">Téléphone</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-dark"
+                  placeholder="06 12 34 56 78"
+                />
               </div>
               <div>
                 <label htmlFor="role" className="block text-sm font-semibold text-dark mb-2">Vous êtes</label>
@@ -244,12 +276,25 @@ export default function AProposPage() {
                   placeholder="Votre message..."
                 />
               </div>
+              <label className="flex items-start gap-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={rgpd}
+                  onChange={(e) => setRgpd(e.target.checked)}
+                  className="mt-1 w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary"
+                />
+                <span className="text-xs text-gray-500">
+                  J&apos;accepte que mes données soient traitées conformément à la <a href="/politique-de-confidentialite" className="underline text-primary">politique de confidentialité</a>.
+                </span>
+              </label>
+              {error && <p className="text-red-600 text-sm bg-red-50 p-3 rounded-lg">{error}</p>}
               <button
                 type="submit"
-                className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white py-3.5 rounded-xl font-semibold transition-colors shadow-lg shadow-primary/25"
+                disabled={loading}
+                className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark disabled:bg-primary/50 text-white py-3.5 rounded-xl font-semibold transition-colors shadow-lg shadow-primary/25"
               >
                 <Send className="w-5 h-5" />
-                Envoyer le message
+                {loading ? "Envoi en cours..." : "Envoyer le message"}
               </button>
             </form>
           )}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SectionHeader from "@/components/ui/SectionHeader";
 import FeatureCard from "@/components/ui/FeatureCard";
 import TrustBar from "@/components/home/TrustBar";
+import DemoForm from "./DemoForm";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -228,23 +229,38 @@ export default function EtablissementsPage() {
         </div>
       </section>
 
-      {/* Demo CTA */}
+      {/* Demo Form */}
       <section id="demo" className="py-20 bg-gradient-to-br from-primary to-primary-dark">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Prêt à simplifier vos transports ?
-          </h2>
-          <p className="text-primary-light/80 mb-8 text-lg">
-            Démo gratuite, sans engagement. Déployable en 2 semaines.
-          </p>
-          <Link
-            href="/a-propos#contact"
-            className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-primary px-8 py-4 rounded-xl font-semibold transition-colors shadow-lg text-lg"
-          >
-            Demander une démo gratuite
-            <ArrowRight className="w-5 h-5" />
-          </Link>
-          <p className="text-primary-light/60 text-sm mt-4">Pilote gratuit pour les 10 premiers établissements</p>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="text-center lg:text-left">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                Demandez votre démo gratuite
+              </h2>
+              <p className="text-blue-100/80 mb-8 text-lg">
+                15 minutes pour découvrir comment MediTrajet peut simplifier vos transports. Sans engagement.
+              </p>
+              <ul className="space-y-3 text-left">
+                <li className="flex items-center gap-3 text-white/80 text-sm">
+                  <CheckCircle className="w-5 h-5 text-emerald-300 shrink-0" />
+                  Démo personnalisée à votre établissement
+                </li>
+                <li className="flex items-center gap-3 text-white/80 text-sm">
+                  <CheckCircle className="w-5 h-5 text-emerald-300 shrink-0" />
+                  Déployable en 2 semaines
+                </li>
+                <li className="flex items-center gap-3 text-white/80 text-sm">
+                  <CheckCircle className="w-5 h-5 text-emerald-300 shrink-0" />
+                  Pilote gratuit pour les 10 premiers établissements
+                </li>
+                <li className="flex items-center gap-3 text-white/80 text-sm">
+                  <CheckCircle className="w-5 h-5 text-emerald-300 shrink-0" />
+                  Réponse sous 24h
+                </li>
+              </ul>
+            </div>
+            <DemoForm />
+          </div>
         </div>
       </section>
     </>

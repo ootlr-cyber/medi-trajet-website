@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import StickyBanner from "@/components/ui/StickyBanner";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
 
 const inter = Inter({
@@ -89,6 +90,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <StickyBanner />
       </body>
     </html>
   );
