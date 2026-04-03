@@ -21,7 +21,7 @@ export default function AppMockup() {
         <div className="flex items-center justify-between mb-5">
           <div>
             <div className="text-sm font-bold text-dark">Centre de Dialyse Saint-Louis</div>
-            <div className="text-xs text-gray-400">Tableau de bord — Lundi 2 avril 2026</div>
+            <div className="text-xs text-gray-400">Tableau de bord - Lundi 2 avril 2026</div>
           </div>
           <div className="bg-secondary/10 text-secondary text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1">
             <CheckCircle className="w-3 h-3" />
@@ -70,7 +70,7 @@ export default function AppMockup() {
               <div className="flex-1">
                 <div className="text-xs font-semibold text-dark">{p.name}</div>
                 <div className="text-[10px] text-gray-400 flex items-center gap-1">
-                  <Clock className="w-2.5 h-2.5" /> {p.time} — {p.dest}
+                  <Clock className="w-2.5 h-2.5" /> {p.time} - {p.dest}
                 </div>
               </div>
               <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full ${p.statusColor}`}>

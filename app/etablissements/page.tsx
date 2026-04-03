@@ -24,8 +24,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Établissements de santé — MediTrajet",
+  title: "Établissements de santé | MediTrajet",
   description: "Atteignez 50% de transport partagé (décret 2025). Portail de gestion, matching automatique, reporting ARS/CPAM. Démo gratuite.",
+  alternates: { canonical: "/etablissements" },
 };
 
 const features = [
@@ -72,12 +73,12 @@ export default function EtablissementsPage() {
                 Pour les établissements de santé
               </div>
               <h1 className="text-4xl sm:text-5xl font-bold text-dark mb-6 leading-tight">
-                Atteignez <span className="text-primary">50% de transport partagé</span> sans effort
+                Organisez <span className="text-primary">80 transports en 15 minutes</span>
               </h1>
               <p className="text-lg text-gray-500 leading-relaxed mb-8">
-                Le décret de février 2025 impose un objectif de 50% de transport partagé
-                d’ici 2026. MediTrajet est le portail qui permet à votre secrétariat
-                d’organiser le transport partagé automatiquement, avec reporting intégré.
+                Votre secrétariat passe des heures au téléphone pour organiser les transports.
+                MediTrajet remplace le téléphone par un portail web : programmez, regroupez
+                les patients automatiquement, suivez tout en temps réel.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
@@ -117,9 +118,9 @@ export default function EtablissementsPage() {
       <section className="py-16 bg-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <span className="text-primary-light text-sm font-semibold uppercase tracking-wider">Contexte réglementaire</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mt-2">L’État impose le transport partagé</h2>
-            <p className="text-gray-400 mt-2">Décret février 2025 + Protocole septembre 2025</p>
+            <span className="text-primary-light text-sm font-semibold uppercase tracking-wider">Pourquoi agir maintenant</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mt-2">Le transport partagé devient obligatoire</h2>
+            <p className="text-gray-400 mt-2">Décret février 2025 : objectif 50% de transport partagé d’ici 2026</p>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {regulation.map((r, i) => (
@@ -231,7 +232,7 @@ export default function EtablissementsPage() {
       <section id="demo" className="py-20 bg-gradient-to-br from-primary to-primary-dark">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Prêt à atteindre 50% de transport partagé ?
+            Prêt à simplifier vos transports ?
           </h2>
           <p className="text-primary-light/80 mb-8 text-lg">
             Démo gratuite, sans engagement. Déployable en 2 semaines.

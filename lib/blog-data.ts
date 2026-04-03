@@ -43,7 +43,7 @@ export const articles: BlogArticle[] = [
     content: [
       "L’Assurance Maladie prend en charge le transport médical sous certaines conditions. Le transport doit être prescrit par un médecin et relié à des soins remboursés. Le patient doit avoir une prescription médicale de transport (PMT).",
       "Le taux de remboursement dépend de votre situation. Pour les patients en ALD (Affection Longue Durée), la prise en charge est de 100% si le transport est lié à l’ALD. Pour les bénéficiaires de la CSS (Complémentaire Santé Solidaire), la prise en charge est également de 100%.",
-      "Trois types de véhicules sont pris en charge : le taxi conventionné CPAM (coût moyen 61€/trajet), le VSL — Véhicule Sanitaire Léger (coût moyen 35€/trajet), et l’ambulance (coût moyen 115€/trajet). Le choix dépend de l’état de santé du patient.",
+      "Trois types de véhicules sont pris en charge : le taxi conventionné CPAM (de 55 à 70 €/trajet), le VSL — Véhicule Sanitaire Léger (de 30 à 40 €/trajet), et l’ambulance (de 80 à 120 €/trajet). Le choix dépend de l’état de santé du patient.",
       "Depuis mars 2025, le tiers payant (zéro avance de frais) est conditionné à l’acceptation du transport partagé pour les soins récurrents. Cela signifie que vous ne payez rien si vous acceptez d’être transporté avec un autre patient.",
       "Pour bénéficier du remboursement, vous devez présenter au transporteur votre prescription médicale de transport et votre attestation de droits de l’organisme dont vous dépendez.",
     ],
@@ -102,9 +102,9 @@ export const articles: BlogArticle[] = [
     readTime: "5 min",
     content: [
       "Le choix du mode de transport médical dépend de votre état de santé et de votre prescription médicale. Trois options existent : le taxi conventionné CPAM, le VSL (Véhicule Sanitaire Léger) et l’ambulance.",
-      "Le taxi conventionné est le mode le plus utilisé (45,8% des dépenses). Il convient aux patients autonomes, capables de se déplacer seuls ou avec une aide minimale. Coût moyen : 61€ par trajet. Il est idéal pour la dialyse et les consultations régulières.",
-      "Le VSL (Véhicule Sanitaire Léger) est 3 fois moins cher (coût moyen 35€/trajet) et convient aux patients nécessitant un accompagnement léger. Il représente 14,8% des dépenses. L’État encourage son utilisation pour réduire les coûts.",
-      "L’ambulance (37,2% des dépenses, coût moyen 115€/trajet) est réservée aux patients qui doivent être transportés en position allongée ou sous surveillance médicale. Elle est 3 fois plus chère qu’un VSL.",
+      "Le taxi conventionné est le mode le plus utilisé (45,8% des dépenses). Il convient aux patients autonomes, capables de se déplacer seuls ou avec une aide minimale. Coût moyen : de 55 à 70 € par trajet. Il est idéal pour la dialyse et les consultations régulières.",
+      "Le VSL (Véhicule Sanitaire Léger) est environ 2 fois moins cher (de 30 à 40 €/trajet) et convient aux patients nécessitant un accompagnement léger. Il représente 14,8% des dépenses. L’État encourage son utilisation pour réduire les coûts.",
+      "L’ambulance (37,2% des dépenses, de 80 à 120 €/trajet) est réservée aux patients qui doivent être transportés en position allongée ou sous surveillance médicale.",
       "MediTrajet est la seule plateforme qui regroupe les trois modes de transport dans une seule application. L’algorithme recommande automatiquement le mode le plus adapté selon la prescription et l’état du patient.",
     ],
     faq: [

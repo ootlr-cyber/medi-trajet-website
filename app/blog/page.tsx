@@ -4,8 +4,9 @@ import { articles } from "@/lib/blog-data";
 import { ArrowRight, Clock, Tag } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Blog & Ressources — MediTrajet",
+  title: "Blog & Ressources | MediTrajet",
   description: "Guides, réglementation et actualités sur le transport médical partagé, le remboursement CPAM, et l’organisation des transports sanitaires.",
+  alternates: { canonical: "/blog" },
 };
 
 export default function BlogPage() {

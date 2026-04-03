@@ -1,36 +1,46 @@
 import Link from "next/link";
-import { ArrowRight, Building2 } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import AppMockup from "@/components/ui/AppMockup";
 
 export default function CTASection() {
   return (
     <section className="relative overflow-hidden">
-      {/* Vague de transition */}
       <div className="w-full">
         <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="w-full h-[40px] sm:h-[60px] lg:h-[80px]">
-          <path d="M0,40 C480,80 960,0 1440,40 L1440,80 L0,80 Z" className="fill-[#1E3A8A]" />
+          <path d="M0,40 C480,80 960,0 1440,40 L1440,80 L0,80 Z" className="fill-[#0F3D2E]" />
         </svg>
       </div>
 
-      <div className="gradient-hero py-20 lg:py-28">
-        {/* Formes décoratives */}
+      <div className="gradient-cta py-20 lg:py-28">
         <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-white/5 rounded-full translate-x-1/3" />
         <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-white/5 rounded-full -translate-x-1/3" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 bg-white/15 text-white rounded-full px-4 py-1.5 text-sm font-semibold mb-6 border border-white/20">
-                <Building2 className="w-4 h-4 text-secondary-light" />
-                Objectif 50% transport partagé
-              </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-                Votre établissement doit atteindre 50% ?
+                Prêt à simplifier vos transports ?
               </h2>
-              <p className="text-lg text-blue-100/70 mb-8 leading-relaxed">
-                MediTrajet est la plateforme qui rend le transport partagé opérationnel.
-                Démo gratuite, déployable en 2 semaines.
+              <p className="text-lg text-white/70 mb-8 leading-relaxed">
+                Démo gratuite en 15 minutes. Déployable en 2 semaines.
+                Vos secrétaires vous remercieront.
               </p>
+
+              <ul className="space-y-3 mb-8 text-left max-w-md mx-auto lg:mx-0">
+                <li className="flex items-center gap-3 text-white/80 text-sm">
+                  <CheckCircle className="w-5 h-5 text-emerald-300 shrink-0" />
+                  Programmation des transports en quelques clics
+                </li>
+                <li className="flex items-center gap-3 text-white/80 text-sm">
+                  <CheckCircle className="w-5 h-5 text-emerald-300 shrink-0" />
+                  Suivi GPS en temps réel pour patients et aidants
+                </li>
+                <li className="flex items-center gap-3 text-white/80 text-sm">
+                  <CheckCircle className="w-5 h-5 text-emerald-300 shrink-0" />
+                  Reporting ARS automatique, sans ressaisie
+                </li>
+              </ul>
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link
                   href="/etablissements#demo"

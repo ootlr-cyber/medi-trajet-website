@@ -20,8 +20,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Transporteurs — MediTrajet",
+  title: "Transporteurs | MediTrajet",
   description: "Optimisez votre activité de transport médical conventionné. +30% de CA, zéro temps mort, courses optimisées.",
+  alternates: { canonical: "/transporteurs" },
 };
 
 const advantages = [
@@ -31,12 +32,12 @@ const advantages = [
 ];
 
 const features = [
-  { icon: Map, title: "Carte temps réel", description: "Visualisez les patients en attente dans votre zone de couverture. Filtrez par type de transport et besoins PMR.", color: "primary" as const },
-  { icon: Calendar, title: "Planning intelligent", description: "Gérez vos disponibilités, voyez vos courses en vue liste ou calendrier. Organisez votre journée efficacement.", color: "secondary" as const },
-  { icon: Brain, title: "Suggestions IA", description: "L'algorithme vous propose des courses qui s'enchaînent bien, réduisant les trajets à vide et maximisant vos revenus.", color: "accent" as const },
-  { icon: BarChart3, title: "Historique & revenus", description: "Consultez vos statistiques, revenus par période et exportez en CSV. Suivez votre rentabilité en temps réel.", color: "primary" as const },
-  { icon: Users, title: "Profil complet", description: "Photo, équipements PMR, zone de couverture, note moyenne. Les patients voient vos capacités et votre fiabilité.", color: "secondary" as const },
-  { icon: Zap, title: "Courses groupées (partagé)", description: "Recevez des courses avec 2+ patients regroupés par l’algo. Plus de volume, moins de trajets à vide.", color: "accent" as const },
+  { icon: Map, title: "Carte et courses en temps réel", description: "Voyez les patients en attente dans votre zone. Acceptez une course en un tap. Filtrez par type de transport et besoins PMR.", color: "primary" as const },
+  { icon: Calendar, title: "Planning et disponibilités", description: "Gérez vos plages horaires, voyez vos courses en vue liste ou calendrier. Partagez votre planning avec votre équipe.", color: "secondary" as const },
+  { icon: Brain, title: "Suggestions de courses enchaînées", description: "L’algorithme vous propose des courses qui s’enchaînent pour réduire les trajets à vide et maximiser vos revenus.", color: "accent" as const },
+  { icon: Zap, title: "Facturation en 2 clics", description: "Générez vos factures 606 et annexes automatiquement. Facturation patients CPAM et hors convention depuis la même app.", color: "primary" as const },
+  { icon: BarChart3, title: "Télétransmission CPAM intégrée", description: "Envoyez vos factures à la CPAM directement depuis l’app. Suivi des rejets, multi-conventions. Fini les allers-retours.", color: "secondary" as const },
+  { icon: Target, title: "Scan et signature électronique", description: "Faites signer le patient en direct sur votre téléphone. Scannez et rattachez les documents (bon de transport, carte vitale).", color: "accent" as const },
 ];
 
 const journeySteps = [
@@ -122,8 +123,37 @@ export default function TransporteursPage() {
         </div>
       </section>
 
-      {/* Journey */}
+      {/* Outils metier */}
       <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            tag="Gestion complète"
+            title="Tout votre métier dans une seule app"
+            description="En plus des courses MediTrajet, gérez toute votre activité de transport conventionné."
+          />
+          <div className="grid sm:grid-cols-2 gap-4">
+            {[
+              { title: "Répertoire patients", desc: "Suivi de votre patientèle, historique des courses, adresses favorites" },
+              { title: "Calcul kilométrique auto", desc: "Distance calculée automatiquement, tarifs conventionnels appliqués sans erreur" },
+              { title: "Échange de courses", desc: "Transférez une course à un collègue en un tap si vous n'êtes pas disponible" },
+              { title: "Historique et statistiques", desc: "Revenus par période, nombre de courses, taux d'acceptation. Export CSV" },
+              { title: "Multi-conventions", desc: "Gérez plusieurs conventions CPAM si vous exercez sur plusieurs départements" },
+              { title: "Notifications et rappels", desc: "Rappel 30 min avant chaque course. Alerte si un patient annule" },
+            ].map((tool, i) => (
+              <div key={i} className="flex items-start gap-4 bg-gray-50 rounded-xl p-5 border border-gray-100">
+                <CheckCircle className="w-5 h-5 text-secondary mt-0.5 shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-dark text-sm">{tool.title}</h3>
+                  <p className="text-xs text-gray-500 mt-1">{tool.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Journey */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             tag="Le parcours de Karim"

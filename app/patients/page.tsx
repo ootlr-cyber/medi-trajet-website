@@ -21,17 +21,18 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Patients — MediTrajet",
+  title: "Patients | MediTrajet",
   description: "Réservez vos transports médicaux en 1 clic. Suivi GPS, trajets récurrents ALD, gestion des aidants.",
+  alternates: { canonical: "/patients" },
 };
 
 const features = [
-  { icon: Smartphone, title: "Réservation 1-clic", description: "Sélectionnez vos adresses favorites, choisissez date et heure. Votre transport est réservé en quelques secondes.", color: "primary" as const },
-  { icon: CalendarDays, title: "Trajets récurrents ALD", description: "Programmez vos dialyses ou traitements pour 1 à 3 mois. Plus besoin de réserver chaque semaine.", color: "secondary" as const },
-  { icon: MapPin, title: "Suivi GPS temps réel", description: "Voyez votre transporteur sur la carte, avec un temps d'arrivée estimé mis à jour en continu.", color: "primary" as const },
-  { icon: Users, title: "Gestion des aidants", description: "Ajoutez vos proches. Ils peuvent réserver et suivre vos trajets à distance, en toute sérénité.", color: "secondary" as const },
-  { icon: Bell, title: "Notifications push", description: "Confirmation, en route, arrivée imminente, terminé. Informé à chaque étape sans ouvrir l'app.", color: "accent" as const },
-  { icon: Shield, title: "100% conventionné CPAM", description: "Tous nos transporteurs sont conventionnés. Estimation de prise en charge avant chaque course.", color: "primary" as const },
+  { icon: Smartphone, title: "Réservation en quelques secondes", description: "Sélectionnez vos adresses favorites, choisissez date et heure. Votre transport est réservé. Pas besoin de passer un coup de fil.", color: "primary" as const },
+  { icon: CalendarDays, title: "Trajets récurrents ALD", description: "Programmez vos dialyses ou traitements pour 1 à 3 mois d'un coup. Plus besoin de réserver chaque semaine.", color: "secondary" as const },
+  { icon: MapPin, title: "Suivi GPS en direct", description: "Voyez votre transporteur sur la carte. Temps d'arrivée mis à jour en continu. Vous savez exactement quand il arrive.", color: "primary" as const },
+  { icon: Users, title: "Partagez avec un tiers de confiance", description: "Votre fils, votre aide-soignante ou un aidant peut suivre votre trajet en temps réel. Ils reçoivent les mêmes notifications que vous.", color: "secondary" as const },
+  { icon: Shield, title: "Gestion par un tiers", description: "Un proche peut gérer entièrement vos transports à votre place : réserver, modifier, annuler. Vous n'avez rien à faire.", color: "accent" as const },
+  { icon: Bell, title: "Notifications à chaque étape", description: "Confirmation, transporteur en route, arrivée dans 5 min, trajet terminé. Vous et vos proches êtes informés automatiquement.", color: "primary" as const },
 ];
 
 const journeySteps = [

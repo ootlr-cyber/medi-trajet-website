@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { articles, getArticleBySlug, getAllSlugs } from "@/lib/blog-data";
 import { ArrowLeft, ArrowRight, Clock, Tag, ChevronDown } from "lucide-react";
+import { ArticleJsonLd, FAQJsonLd } from "@/components/seo/JsonLd";
 
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -13,8 +14,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const article = getArticleBySlug(slug);
   if (!article) return {};
   return {
-    title: `${article.title} — MediTrajet`,
+    title: `${article.title} | MediTrajet`,
     description: article.description,
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: {
+      title: article.title,
+      description: article.description,
+      type: "article",
+      publishedTime: article.date,
+    },
   };
 }
 
@@ -25,6 +33,13 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
 
   return (
     <>
+      <ArticleJsonLd
+        title={article.title}
+        description={article.description}
+        url={`https://meditrajet.fr/blog/${slug}`}
+        datePublished={article.date}
+      />
+      {article.faq && article.faq.length > 0 && <FAQJsonLd items={article.faq} />}
       <article className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link href="/blog" className="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-8 hover:underline">

@@ -62,13 +62,13 @@ export default function PhoneMockup() {
               <Clock className="w-4 h-4 text-primary" />
               <div>
                 <div className="text-xs font-semibold text-gray-900">Prochain trajet</div>
-                <div className="text-[10px] text-gray-400">Dialyse — Mercredi 14h00</div>
+                <div className="text-[10px] text-gray-400">Dialyse - Mercredi 14h00</div>
               </div>
             </div>
             <div className="flex items-center gap-3 bg-gray-50 rounded-xl p-3">
               <Star className="w-4 h-4 text-amber-500" />
               <div>
-                <div className="text-xs font-semibold text-gray-900">Karim B. — 4.9/5</div>
+                <div className="text-xs font-semibold text-gray-900">Karim B. - 4.9/5</div>
                 <div className="text-[10px] text-gray-400">Votre transporteur habituel</div>
               </div>
             </div>
