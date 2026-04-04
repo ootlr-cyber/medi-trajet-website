@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Patients | MediTrajet",
+  title: "Patients",
   description: "Réservez vos transports médicaux en 1 clic. Suivi GPS, trajets récurrents ALD, gestion des aidants.",
   alternates: { canonical: "/patients" },
 };

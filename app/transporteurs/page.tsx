@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Transporteurs | MediTrajet",
+  title: "Transporteurs",
   description: "Optimisez votre activité de transport médical conventionné. +30% de CA, zéro temps mort, courses optimisées.",
   alternates: { canonical: "/transporteurs" },
 };

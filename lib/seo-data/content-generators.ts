@@ -5,7 +5,7 @@ const intros = [
   (name: string, dep: string, code: string, region: string, pop: number, count: number) =>
     `Située dans le ${dep} (${code}), ${name} compte ${pop.toLocaleString("fr-FR")} habitants et ${count} établissement${count > 1 ? "s" : ""} de santé. La ville est rattachée à la région ${region}.`,
   (name: string, dep: string, code: string, region: string, pop: number, count: number) =>
-    `${name}, préfecture du ${dep} (${code}), fait partie de la région ${region}. Ses ${pop.toLocaleString("fr-FR")} habitants ont accès à ${count} établissement${count > 1 ? "s" : ""} de santé sur place.`,
+    `${name}, préfecture de ${dep} (${code}), fait partie de la région ${region}. Ses ${pop.toLocaleString("fr-FR")} habitants ont accès à ${count} établissement${count > 1 ? "s" : ""} de santé sur place.`,
   (name: string, dep: string, code: string, region: string, pop: number, count: number) =>
     `Avec ${pop.toLocaleString("fr-FR")} habitants, ${name} est le chef-lieu du département ${dep} (${code}) en ${region}. On y trouve ${count} établissement${count > 1 ? "s" : ""} de santé.`,
 ];

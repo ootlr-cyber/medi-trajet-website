@@ -9,7 +9,7 @@ import InternalLinksSection from "@/components/seo/InternalLinksSection";
 import MapExplorerWrapper from "./MapExplorerWrapper";
 
 export const metadata: Metadata = {
-  title: "Taxi conventionné en France | Toutes les villes | MediTrajet",
+  title: "Taxi conventionné en France | Toutes les villes",
   description:
     "Trouvez un taxi conventionné CPAM dans votre ville. 100+ villes desservies, prise en charge Assurance Maladie, tiers payant, sans avance de frais.",
   alternates: { canonical: "/taxi-conventionne" },

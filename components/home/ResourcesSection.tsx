@@ -5,7 +5,7 @@ import FranceMap from "./FranceMap";
 const topGuides = [
   { title: "Remboursement transport CPAM", slug: "remboursement-transport-cpam" },
   { title: "Bon de transport medical", slug: "bon-de-transport-medical" },
-  { title: "Taxi conventionne : comment ca marche", slug: "taxi-conventionne-comment-ca-marche" },
+  { title: "Taxi conventionné : comment ça marche", slug: "taxi-conventionne-comment-ca-marche" },
   { title: "ALD et transport medical", slug: "ald-transport-medical" },
   { title: "Taxi, VSL ou ambulance : le comparatif", slug: "tarifs-taxi-vsl-ambulance" },
   { title: "Transport pour la dialyse", slug: "transport-dialyse" },
@@ -19,7 +19,7 @@ export default function ResourcesSection() {
 
           {/* Carte de France */}
           <div className="bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-3xl p-8 border border-gray-100">
-            <h2 className="text-xl font-bold text-dark mb-2">Taxi conventionne par region</h2>
+            <h2 className="text-xl font-bold text-dark mb-2">Taxi conventionné par région</h2>
             <p className="text-sm text-gray-500 mb-6">Cliquez sur une region pour voir les villes desservies</p>
             <FranceMap />
             <div className="text-center mt-6">

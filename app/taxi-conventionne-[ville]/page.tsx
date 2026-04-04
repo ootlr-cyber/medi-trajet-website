@@ -167,7 +167,7 @@ export default async function CityPage({
           <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl p-6 mb-10 flex flex-col sm:flex-row items-center gap-4 border border-primary/10">
             <div className="flex-1">
               <p className="font-semibold text-dark">Besoin d&apos;un transport pour vos soins ?</p>
-              <p className="text-sm text-gray-500">MediTrajet organise votre taxi conventionne, sans avance de frais.</p>
+              <p className="text-sm text-gray-500">MediTrajet organise votre taxi conventionné, sans avance de frais.</p>
             </div>
             <Link
               href="/patients"

@@ -8,7 +8,7 @@ import AnswerBox from "@/components/seo/AnswerBox";
 import InternalLinksSection from "@/components/seo/InternalLinksSection";
 
 export const metadata: Metadata = {
-  title: "Guides transport médical | Remboursement, CPAM, droits | MediTrajet",
+  title: "Guides transport médical | Remboursement, CPAM, droits",
   description:
     "Tous nos guides sur le transport médical : remboursement CPAM, bon de transport, ALD, taxi conventionné, VSL, ambulance. Informations complètes et à jour.",
   alternates: { canonical: "/guides" },

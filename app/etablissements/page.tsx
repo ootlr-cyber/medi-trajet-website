@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Établissements de santé | MediTrajet",
+  title: "Établissements de santé",
   description: "Atteignez 50% de transport partagé (décret 2025). Portail de gestion, matching automatique, reporting ARS/CPAM. Démo gratuite.",
   alternates: { canonical: "/etablissements" },
 };

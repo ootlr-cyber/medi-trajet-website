@@ -1,18 +1,40 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { name, email, phone, role, etablissement, message } = body;
+    const rawName = String(body.name || "").trim();
+    const rawEmail = String(body.email || "").trim();
+    const rawPhone = String(body.phone || "").trim();
+    const rawRole = String(body.role || "").trim();
+    const rawEtablissement = String(body.etablissement || "").trim();
+    const rawMessage = String(body.message || "").trim();
 
     // Validation
-    if (!name || !email) {
+    if (!rawName || !rawEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(rawEmail)) {
       return NextResponse.json(
-        { error: "Nom et email requis" },
+        { error: "Nom et email valide requis" },
         { status: 400 }
       );
     }
+
+    // Escape for HTML
+    const name = escapeHtml(rawName);
+    const email = escapeHtml(rawEmail);
+    const phone = escapeHtml(rawPhone);
+    const role = escapeHtml(rawRole);
+    const etablissement = escapeHtml(rawEtablissement);
+    const message = escapeHtml(rawMessage);
 
     const roleLabels: Record<string, string> = {
       directeur: "Directeur / gestionnaire",
