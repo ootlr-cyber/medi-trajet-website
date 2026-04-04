@@ -1,5 +1,7 @@
+"use client";
+
+import { useState } from "react";
 import SectionHeader from "@/components/ui/SectionHeader";
-import Image from "next/image";
 import {
   Building2,
   Users,
@@ -9,8 +11,10 @@ import {
   CalendarDays,
   Brain,
   Bell,
+  ArrowRight,
 } from "lucide-react";
 import { type LucideIcon } from "lucide-react";
+import Link from "next/link";
 
 interface Feature {
   icon: LucideIcon;
@@ -18,78 +22,123 @@ interface Feature {
   description: string;
 }
 
-const etablissementFeatures: Feature[] = [
-  { icon: Building2, title: "Portail établissement", description: "Vue des patients du jour, programmation des transports, gestion multi-secrétaires depuis un portail web." },
-  { icon: Users, title: "Transport partagé intelligent", description: "Regroupement automatique des patients compatibles. Détour max 10 km, attente max 45 min." },
-  { icon: BarChart3, title: "Reporting ARS / CPAM", description: "Dashboard taux de partage en temps réel. Rapports exportés pour l’ARS." },
-];
-
-const patientFeatures: Feature[] = [
-  { icon: Smartphone, title: "App Patient intuitive", description: "Réservation ponctuelle ou récurrente, suivi GPS, gestion des aidants. Pour tous les âges." },
-  { icon: MapPin, title: "Suivi GPS temps réel", description: "Position mise à jour toutes les 5 secondes. ETA dynamique et notifications push." },
-  { icon: CalendarDays, title: "Trajets récurrents ALD", description: "Programmez vos dialyses pour 1 à 3 mois. Plus de réservation hebdomadaire." },
-];
-
-const transporteurFeatures: Feature[] = [
-  { icon: Brain, title: "Matching et optimisation", description: "Algorithme par proximité, disponibilité, équipements PMR. Suggestions de courses enchaînées." },
-  { icon: Bell, title: "Notifications multi-acteurs", description: "Patient, aidants, secrétariat et transporteur notifiés à chaque étape." },
-];
-
-const groups = [
-  { label: "Établissements", color: "bg-primary", textColor: "text-primary", iconBg: "bg-primary/10", borderColor: "border-l-primary", features: etablissementFeatures, image: "/images/hero-etablissement.jpg" },
-  { label: "Patients", color: "bg-secondary", textColor: "text-secondary", iconBg: "bg-secondary/10", borderColor: "border-l-secondary", features: patientFeatures, image: "/images/hero-patient.jpg" },
-  { label: "Transporteurs", color: "bg-accent", textColor: "text-accent", iconBg: "bg-amber-50", borderColor: "border-l-accent", features: transporteurFeatures, image: "/images/hero-transporteur.jpg" },
+const tabs = [
+  {
+    id: "etablissements",
+    label: "Établissements",
+    icon: Building2,
+    href: "/etablissements",
+    color: "bg-blue-600",
+    lightColor: "bg-blue-50",
+    textColor: "text-blue-600",
+    ringColor: "ring-blue-600",
+    headline: "Organisez 80 transports en 15 minutes",
+    subtitle: "Portail web complet pour votre secrétariat médical",
+    features: [
+      { icon: Building2, title: "Portail multi-secrétaires", description: "Vue patients du jour, programmation drag & drop, gestion par service (dialyse, radiothérapie, hôpital de jour)." },
+      { icon: Users, title: "Matching partagé automatique", description: "L'algorithme regroupe les patients compatibles : même créneau, même zone. Détour max 10 km, attente max 45 min." },
+      { icon: BarChart3, title: "Reporting ARS / CPAM", description: "Dashboard taux de partage en temps réel. Rapports conformes exportés automatiquement pour l'ARS." },
+    ] as Feature[],
+  },
+  {
+    id: "patients",
+    label: "Patients",
+    icon: Smartphone,
+    href: "/patients",
+    color: "bg-emerald-600",
+    lightColor: "bg-emerald-50",
+    textColor: "text-emerald-600",
+    ringColor: "ring-emerald-600",
+    headline: "Réservez votre transport en quelques clics",
+    subtitle: "Application simple et accessible, pensée pour tous les âges",
+    features: [
+      { icon: Smartphone, title: "Réservation intuitive", description: "Réservation ponctuelle ou récurrente, gestion des aidants, interface accessible. Pour tous les âges." },
+      { icon: MapPin, title: "Suivi GPS temps réel", description: "Position mise à jour toutes les 5 secondes. ETA dynamique et notifications push à chaque étape." },
+      { icon: CalendarDays, title: "Trajets récurrents ALD", description: "Programmez vos dialyses pour 1 à 3 mois d'un coup. Plus de réservation hebdomadaire." },
+    ] as Feature[],
+  },
+  {
+    id: "transporteurs",
+    label: "Transporteurs",
+    icon: Brain,
+    href: "/transporteurs",
+    color: "bg-amber-600",
+    lightColor: "bg-amber-50",
+    textColor: "text-amber-600",
+    ringColor: "ring-amber-600",
+    headline: "+30% de revenus, zéro temps mort",
+    subtitle: "Remplissez votre planning grâce au matching intelligent",
+    features: [
+      { icon: Brain, title: "Matching intelligent", description: "Algorithme par proximité, disponibilité, équipements PMR. Suggestions de courses enchaînées pour optimiser vos trajets." },
+      { icon: Bell, title: "Notifications instantanées", description: "Patient, aidants, secrétariat et transporteur notifiés à chaque étape. Alertes retard automatiques." },
+      { icon: BarChart3, title: "Facturation CPAM intégrée", description: "Télétransmission des factures 606, signature électronique, scan de documents. Gestion multi-conventions." },
+    ] as Feature[],
+  },
 ];
 
 export default function Features() {
+  const [activeTab, setActiveTab] = useState(0);
+  const tab = tabs[activeTab];
+
   return (
-    <section className="py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           tag="Fonctionnalités"
           title="Une plateforme, trois expériences"
           description="Établissements, patients et transporteurs : chacun a les outils adaptés à son rôle."
         />
 
-        <div className="space-y-20">
-          {groups.map((group, gi) => (
-            <div key={gi}>
-              <div className="flex items-center gap-3 mb-8">
-                <div className={`w-4 h-4 ${group.color} rounded-full`} />
-                <span className={`text-sm font-bold ${group.textColor} uppercase tracking-wider`}>{group.label}</span>
-                <div className="flex-1 h-px bg-gray-200 ml-2" />
-              </div>
+        {/* Tabs */}
+        <div className="flex justify-center mb-10">
+          <div className="inline-flex bg-gray-100 rounded-xl p-1 gap-1">
+            {tabs.map((t, i) => (
+              <button
+                key={t.id}
+                onClick={() => setActiveTab(i)}
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all ${
+                  activeTab === i
+                    ? `bg-white shadow-md ${t.textColor}`
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
+              >
+                <t.icon className="w-4 h-4" />
+                <span className="hidden sm:inline">{t.label}</span>
+              </button>
+            ))}
+          </div>
+        </div>
 
-              <div className={`grid lg:grid-cols-${group.features.length + 1} gap-6 items-stretch`}>
-                {/* Image du groupe */}
-                <div className="relative h-48 lg:h-auto rounded-2xl overflow-hidden shadow-md hidden lg:block">
-                  <Image
-                    src={group.image}
-                    alt={group.label}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className={`absolute inset-0 bg-gradient-to-t from-black/60 to-transparent`} />
-                  <div className="absolute bottom-4 left-4">
-                    <span className="text-white font-bold text-sm bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-lg">
-                      {group.label}
-                    </span>
-                  </div>
+        {/* Content */}
+        <div className="bg-gray-50 rounded-3xl p-6 sm:p-10">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">{tab.headline}</h3>
+            <p className="text-gray-500">{tab.subtitle}</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-5">
+            {tab.features.map((f, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all group"
+              >
+                <div className={`w-12 h-12 ${tab.lightColor} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                  <f.icon className={`w-6 h-6 ${tab.textColor}`} />
                 </div>
-
-                {/* Feature cards */}
-                {group.features.map((f, i) => (
-                  <div key={i} className={`bg-white rounded-2xl p-7 border border-gray-100 border-l-4 ${group.borderColor} hover:shadow-xl hover:-translate-y-0.5 transition-all group/card`}>
-                    <div className={`w-14 h-14 ${group.iconBg} rounded-2xl flex items-center justify-center mb-5 group-hover/card:scale-110 transition-transform`}>
-                      <f.icon className={`w-7 h-7 ${group.textColor}`} />
-                    </div>
-                    <h3 className="text-lg font-bold text-dark mb-2">{f.title}</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed">{f.description}</p>
-                  </div>
-                ))}
+                <h4 className="text-base font-bold text-gray-900 mb-2">{f.title}</h4>
+                <p className="text-gray-500 text-sm leading-relaxed">{f.description}</p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          <div className="text-center mt-8">
+            <Link
+              href={tab.href}
+              className={`inline-flex items-center gap-2 ${tab.textColor} font-semibold text-sm hover:gap-3 transition-all`}
+            >
+              En savoir plus <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>
