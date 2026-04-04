@@ -58,11 +58,13 @@ export default function FAQSection({
                 }`}
               />
             </button>
-            {openIndex === i && (
-              <div className="px-4 sm:px-5 pb-4 sm:pb-5 text-gray-600 leading-relaxed">
-                {item.a}
-              </div>
-            )}
+            <div
+              className={`px-4 sm:px-5 text-gray-600 leading-relaxed transition-all duration-200 ${
+                openIndex === i ? "pb-4 sm:pb-5 max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
+              }`}
+            >
+              {item.a}
+            </div>
           </div>
         ))}
       </div>

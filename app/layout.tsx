@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import StickyBanner from "@/components/ui/StickyBanner";
-import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
+import { OrganizationJsonLd, WebSiteJsonLd, ServiceJsonLd, SoftwareApplicationJsonLd } from "@/components/seo/JsonLd";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -87,6 +87,8 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans">
         <OrganizationJsonLd />
         <WebSiteJsonLd />
+        <ServiceJsonLd />
+        <SoftwareApplicationJsonLd />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

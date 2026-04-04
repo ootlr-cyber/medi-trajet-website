@@ -1,0 +1,45 @@
+# MediTrajet
+
+> MediTrajet est la plateforme de transport medical partage pour les etablissements de sante en France. Elle permet aux secretariats medicaux d'organiser les transports de leurs patients en quelques clics, avec matching automatique, suivi GPS temps reel et reporting ARS/CPAM. Conforme au decret fevrier 2025 imposant 50% de transport partage.
+
+## Pages principales
+
+- [Accueil](https://meditrajet.fr): Presentation de la plateforme de transport medical partage
+- [Etablissements de sante](https://meditrajet.fr/etablissements): Solution pour les hopitaux, cliniques, centres de dialyse et radiotherapie
+- [Patients](https://meditrajet.fr/patients): Reservation et suivi de transport medical pour les patients ALD
+- [Transporteurs](https://meditrajet.fr/transporteurs): Plateforme pour taxis conventionnes, VSL et ambulances
+- [A propos](https://meditrajet.fr/a-propos): Mission, equipe et contact
+
+## Guides transport medical
+
+- [Remboursement transport medical CPAM](https://meditrajet.fr/guides/remboursement-transport-medical-cpam): Comment obtenir le remboursement de vos frais de transport medical
+- [Bon de transport medical](https://meditrajet.fr/guides/bon-de-transport-medical): Tout savoir sur le bon de transport (prescription medicale de transport)
+- [Transport ALD](https://meditrajet.fr/guides/transport-medical-ald-affection-longue-duree): Droits et prise en charge transport pour les patients en ALD
+- [VSL ou taxi conventionne](https://meditrajet.fr/guides/vsl-ou-taxi-conventionne-que-choisir): Guide de choix entre VSL et taxi pour le transport medical
+- [Demande d'entente prealable](https://meditrajet.fr/guides/demande-entente-prealable-transport-medical): Procedure de demande d'entente prealable pour transport longue distance
+- [Transport en ambulance](https://meditrajet.fr/guides/transport-ambulance-conditions-remboursement): Conditions et remboursement du transport en ambulance
+
+## Taxi conventionne par ville
+
+- [Paris](https://meditrajet.fr/taxi-conventionne/paris): Taxi conventionne a Paris
+- [Lyon](https://meditrajet.fr/taxi-conventionne/lyon): Taxi conventionne a Lyon
+- [Marseille](https://meditrajet.fr/taxi-conventionne/marseille): Taxi conventionne a Marseille
+- [Toulouse](https://meditrajet.fr/taxi-conventionne/toulouse): Taxi conventionne a Toulouse
+- [Bordeaux](https://meditrajet.fr/taxi-conventionne/bordeaux): Taxi conventionne a Bordeaux
+- [Toutes les villes](https://meditrajet.fr/taxi-conventionne): Recherche de taxi conventionne dans toute la France
+
+## Taxi par pathologie
+
+- [Taxi chimiotherapie](https://meditrajet.fr/taxi-chimiotherapie): Transport pour les seances de chimiotherapie
+- [Taxi dialyse](https://meditrajet.fr/taxi-dialyse): Transport recurrent pour les patients dialyses
+- [Taxi hopital](https://meditrajet.fr/taxi-hopital): Transport vers les hopitaux et CHU
+
+## Blog
+
+- [Blog](https://meditrajet.fr/blog): Articles et actualites sur le transport medical en France
+
+## Informations legales
+
+- [CGU](https://meditrajet.fr/cgu): Conditions generales d'utilisation
+- [Mentions legales](https://meditrajet.fr/mentions-legales): Informations legales
+- [Politique de confidentialite](https://meditrajet.fr/politique-de-confidentialite): Traitement des donnees personnelles
