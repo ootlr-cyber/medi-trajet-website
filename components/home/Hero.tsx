@@ -1,31 +1,37 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Building2, Heart, Truck, CheckCircle } from "lucide-react";
+import { ArrowRight, Building2, Heart, Truck, CheckCircle, Star } from "lucide-react";
 
 const audiences = [
   {
-    href: "/etablissements",
+    href: "/etablissements#demo",
     icon: Building2,
     title: "Centres de soins",
-    desc: "Organisez vos transports en quelques clics",
+    desc: "Organisez 80 transports en 15 min",
+    cta: "Demander une démo",
     image: "/images/card-etablissement.jpg",
-    color: "from-primary/80 to-primary-dark/90",
+    accent: "bg-blue-600",
+    ring: "ring-blue-600/20",
   },
   {
     href: "/patients",
     icon: Heart,
     title: "Patients",
-    desc: "Suivez votre taxi en temps réel, sans stress",
+    desc: "Réservez votre taxi en quelques clics",
+    cta: "Découvrir",
     image: "/images/card-patient.jpg",
-    color: "from-secondary/80 to-secondary-dark/90",
+    accent: "bg-emerald-600",
+    ring: "ring-emerald-600/20",
   },
   {
     href: "/transporteurs",
     icon: Truck,
     title: "Transporteurs",
-    desc: "Remplissez votre planning, réduisez les temps morts",
+    desc: "Remplissez votre planning sans temps morts",
+    cta: "Découvrir",
     image: "/images/card-transporteur.jpg",
-    color: "from-gray-700/80 to-gray-900/90",
+    accent: "bg-gray-800",
+    ring: "ring-gray-800/20",
   },
 ];
 
@@ -36,7 +42,7 @@ export default function Hero() {
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-white/5 rounded-full translate-y-1/2 -translate-x-1/3" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-28 lg:pt-28 lg:pb-36">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32 lg:pt-28 lg:pb-44">
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white rounded-full px-5 py-2 text-sm font-semibold mb-8 border border-white/20">
               <CheckCircle className="w-4 h-4 text-secondary-light" />
@@ -54,7 +60,7 @@ export default function Hero() {
               de vos patients en quelques clics, avec suivi en temps réel.
             </p>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
               <Link
                 href="/etablissements#demo"
                 className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-primary px-8 py-4 rounded-2xl font-bold transition-all shadow-xl shadow-black/10 text-lg"
@@ -70,51 +76,49 @@ export default function Hero() {
               </Link>
             </div>
 
-            <div className="flex items-center justify-center gap-3 mt-4">
-              <div className="flex -space-x-2">
-                <div className="w-8 h-8 rounded-full bg-blue-200 border-2 border-white/30" />
-                <div className="w-8 h-8 rounded-full bg-emerald-200 border-2 border-white/30" />
-                <div className="w-8 h-8 rounded-full bg-amber-200 border-2 border-white/30" />
+            <div className="flex items-center justify-center gap-2">
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
+                ))}
               </div>
-              <p className="text-blue-100/70 text-sm">
-                <span className="font-semibold text-white">12 établissements</span> nous font déjà confiance
+              <p className="text-blue-100/60 text-sm">
+                Recommandé par <span className="font-semibold text-white">12 établissements</span> en France
               </p>
             </div>
           </div>
         </div>
-
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 100" preserveAspectRatio="none" className="w-full h-[50px] sm:h-[80px] lg:h-[100px]">
-            <path d="M0,40 C360,100 720,0 1080,60 C1260,80 1380,50 1440,40 L1440,100 L0,100 Z" fill="#ffffff" />
-          </svg>
-        </div>
       </section>
 
-      <section className="relative -mt-6 sm:-mt-10 lg:-mt-16 z-10 pb-12">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-5">
+      <section className="relative -mt-20 sm:-mt-24 z-10 pb-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-4 sm:gap-5">
             {audiences.map((a, i) => (
               <Link
                 key={i}
                 href={a.href}
-                className="group relative h-64 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1"
+                className={`group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 ring-1 ${a.ring}`}
               >
-                <Image
-                  src={a.image}
-                  alt={a.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className={`absolute inset-0 bg-gradient-to-t ${a.color}`} />
-                <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <div className="flex items-center gap-2 mb-2">
-                    <a.icon className="w-5 h-5 text-white/80" />
-                    <span className="text-white text-xl font-bold">{a.title}</span>
+                <div className="relative h-40 overflow-hidden">
+                  <Image
+                    src={a.image}
+                    alt={a.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                </div>
+                <div className="p-5">
+                  <div className="flex items-center gap-2.5 mb-2">
+                    <div className={`w-9 h-9 ${a.accent} rounded-lg flex items-center justify-center`}>
+                      <a.icon className="w-4.5 h-4.5 text-white" />
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900">{a.title}</h3>
                   </div>
-                  <p className="text-white/70 text-sm">{a.desc}</p>
-                  <div className="mt-3 inline-flex items-center gap-1 text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
-                    Découvrir <ArrowRight className="w-4 h-4" />
-                  </div>
+                  <p className="text-gray-500 text-sm mb-3">{a.desc}</p>
+                  <span className="inline-flex items-center gap-1 text-sm font-semibold text-blue-700 group-hover:gap-2 transition-all">
+                    {a.cta} <ArrowRight className="w-4 h-4" />
+                  </span>
                 </div>
               </Link>
             ))}
