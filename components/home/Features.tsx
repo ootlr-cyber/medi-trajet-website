@@ -12,6 +12,13 @@ import {
   Brain,
   Bell,
   ArrowRight,
+  FileText,
+  ScanLine,
+  Route,
+  CreditCard,
+  Share2,
+  PenTool,
+  Shield,
 } from "lucide-react";
 import { type LucideIcon } from "lucide-react";
 import Link from "next/link";
@@ -67,11 +74,17 @@ const tabs = [
     textColor: "text-amber-600",
     ringColor: "ring-amber-600",
     headline: "+30% de revenus, zéro temps mort",
-    subtitle: "Remplissez votre planning grâce au matching intelligent",
+    subtitle: "Planning, facturation, télétransmission et dispatch — tout dans une seule app",
     features: [
-      { icon: Brain, title: "Matching intelligent", description: "Algorithme par proximité, disponibilité, équipements PMR. Suggestions de courses enchaînées pour optimiser vos trajets." },
-      { icon: Bell, title: "Notifications instantanées", description: "Patient, aidants, secrétariat et transporteur notifiés à chaque étape. Alertes retard automatiques." },
-      { icon: BarChart3, title: "Facturation CPAM intégrée", description: "Télétransmission des factures 606, signature électronique, scan de documents. Gestion multi-conventions." },
+      { icon: CalendarDays, title: "Planning automatisé", description: "Planifiez votre journée sans effort. Création de courses, transport simultané automatique, vue planning centralisée multi-collaborateurs." },
+      { icon: Brain, title: "Matching & dispatch", description: "Algorithme par proximité et disponibilité. Suggestions de courses enchaînées. Partagez et assignez des courses entre collègues." },
+      { icon: Route, title: "Distancier intégré", description: "Calcul automatique des kilomètres parcourus par course. Tarifs conventionnels CPAM appliqués automatiquement." },
+      { icon: FileText, title: "Facturation 606 en 2 clics", description: "Génération automatique des annexes 606 et formulaires Cerfa. Facturation médicale, mutuelle et reste à charge patient." },
+      { icon: CreditCard, title: "Télétransmission CPAM", description: "Envoi électronique automatique aux caisses. Suivi des paiements et rejets en temps réel. Réduction de 90% des rejets." },
+      { icon: ScanLine, title: "Scan Vitale & PEC+", description: "Scan carte Vitale et prescriptions (PMT/BS). Création automatique des fiches patients avec droits à jour via PEC+." },
+      { icon: PenTool, title: "Signature électronique", description: "Validation numérique des transports. Scan et archivage de documents directement dans l'app. Archivage illimité HDS." },
+      { icon: Share2, title: "Réseau & partage de courses", description: "Échangez des courses entre indépendants. Intégration WhatsApp/SMS pour déléguer même à des non-utilisateurs." },
+      { icon: Shield, title: "Multi-agréments", description: "Support de plusieurs conventions et agréments simultanés. Gestion multi-départements pour les opérateurs multi-zones." },
     ] as Feature[],
   },
 ];

@@ -17,6 +17,15 @@ import {
   Zap,
   Target,
   Award,
+  FileText,
+  ScanLine,
+  Route,
+  CreditCard,
+  Share2,
+  PenTool,
+  Shield,
+  Bell,
+  Smartphone,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -33,11 +42,14 @@ const advantages = [
 
 const features = [
   { icon: Map, title: "Carte et courses en temps réel", description: "Voyez les patients en attente dans votre zone. Acceptez une course en un tap. Filtrez par type de transport et besoins PMR.", color: "primary" as const },
-  { icon: Calendar, title: "Planning et disponibilités", description: "Gérez vos plages horaires, voyez vos courses en vue liste ou calendrier. Partagez votre planning avec votre équipe.", color: "secondary" as const },
-  { icon: Brain, title: "Suggestions de courses enchaînées", description: "L’algorithme vous propose des courses qui s’enchaînent pour réduire les trajets à vide et maximiser vos revenus.", color: "accent" as const },
-  { icon: Zap, title: "Facturation en 2 clics", description: "Générez vos factures 606 et annexes automatiquement. Facturation patients CPAM et hors convention depuis la même app.", color: "primary" as const },
-  { icon: BarChart3, title: "Télétransmission CPAM intégrée", description: "Envoyez vos factures à la CPAM directement depuis l’app. Suivi des rejets, multi-conventions. Fini les allers-retours.", color: "secondary" as const },
-  { icon: Target, title: "Scan et signature électronique", description: "Faites signer le patient en direct sur votre téléphone. Scannez et rattachez les documents (bon de transport, carte vitale).", color: "accent" as const },
+  { icon: Calendar, title: "Planning automatisé", description: "Planifiez votre journée sans effort. Transport simultané automatique, vue planning centralisée, dispatch entre collaborateurs.", color: "secondary" as const },
+  { icon: Brain, title: "Matching & courses enchaînées", description: "L’algorithme vous propose des courses qui s’enchaînent par proximité et disponibilité pour maximiser vos revenus.", color: "accent" as const },
+  { icon: FileText, title: "Facturation 606 en 2 clics", description: "Génération automatique des annexes 606, formulaires Cerfa pré-remplis. Facturation médicale, mutuelle et reste à charge patient.", color: "primary" as const },
+  { icon: CreditCard, title: "Télétransmission CPAM", description: "Envoi électronique automatique aux caisses. Suivi paiements et rejets en temps réel. Réduction de 90% des rejets administratifs.", color: "secondary" as const },
+  { icon: ScanLine, title: "Scan Vitale & PEC+", description: "Scan carte Vitale et prescriptions (PMT/BS). Création automatique des fiches patients avec droits à jour via PEC+.", color: "accent" as const },
+  { icon: PenTool, title: "Signature électronique", description: "Validation numérique des transports sur smartphone. Scan et archivage de documents directement dans l’app. Archivage illimité HDS.", color: "primary" as const },
+  { icon: Share2, title: "Réseau & partage de courses", description: "Échangez des courses entre indépendants. Déléguez via WhatsApp/SMS même à des non-utilisateurs. Équipe et planning partagé.", color: "secondary" as const },
+  { icon: Route, title: "Distancier intégré", description: "Calcul automatique des kilomètres parcourus. Tarifs conventionnels CPAM appliqués sans erreur. Répertoire 800 000+ structures FINESS.", color: "accent" as const },
 ];
 
 const journeySteps = [
@@ -133,12 +145,14 @@ export default function TransporteursPage() {
           />
           <div className="grid sm:grid-cols-2 gap-4">
             {[
-              { title: "Répertoire patients", desc: "Suivi de votre patientèle, historique des courses, adresses favorites" },
-              { title: "Calcul kilométrique auto", desc: "Distance calculée automatiquement, tarifs conventionnels appliqués sans erreur" },
-              { title: "Échange de courses", desc: "Transférez une course à un collègue en un tap si vous n'êtes pas disponible" },
-              { title: "Historique et statistiques", desc: "Revenus par période, nombre de courses, taux d'acceptation. Export CSV" },
-              { title: "Multi-conventions", desc: "Gérez plusieurs conventions CPAM si vous exercez sur plusieurs départements" },
-              { title: "Notifications et rappels", desc: "Rappel 30 min avant chaque course. Alerte si un patient annule" },
+              { title: "Répertoire patients & prescripteurs", desc: "Suivi de votre patientèle, historique des courses, adresses favorites. Répertoire collaboratif prescripteurs intégré." },
+              { title: "Télétransmission Premium", desc: "Traitement automatique des rejets, envoi postal des lots, suivi automatique et affranchissement inclus." },
+              { title: "Échange de courses WhatsApp/SMS", desc: "Transférez une course à un collègue en un tap. Intégration WhatsApp et SMS même pour les non-utilisateurs." },
+              { title: "Historique et statistiques", desc: "Revenus par période, nombre de courses, taux d'acceptation. Export CSV et archivage illimité HDS." },
+              { title: "Multi-conventions & multi-agréments", desc: "Gérez plusieurs conventions CPAM et agréments simultanés. Idéal pour les opérateurs multi-départements." },
+              { title: "Notifications et rappels", desc: "Rappel 30 min avant chaque course. Alerte si un patient annule. Notifications push patient, aidants et secrétariat." },
+              { title: "Facturation non-médicale", desc: "Gérez aussi vos courses hors convention (aéroport, gare, privé) depuis la même application." },
+              { title: "Équipe & planning partagé", desc: "Gestion multi-utilisateur pour salariés et indépendants en groupement. Dispatch centralisé." },
             ].map((tool, i) => (
               <div key={i} className="flex items-start gap-4 bg-gray-50 rounded-xl p-5 border border-gray-100">
                 <CheckCircle className="w-5 h-5 text-secondary mt-0.5 shrink-0" />
