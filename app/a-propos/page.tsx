@@ -3,46 +3,89 @@
 import SectionHeader from "@/components/ui/SectionHeader";
 import Image from "next/image";
 import {
-  Target,
-  Layers,
+  Heart,
+  Clock,
+  Phone,
+  CalendarX,
+  Smile,
   ShieldCheck,
-  HeartHandshake,
-  Ambulance,
-  Users,
-  Building,
-  TrendingUp,
+  Scale,
+  Sparkles,
   Send,
   Mail,
-  Lock,
-  Server,
-  Scale,
+  Building,
+  Users,
+  MapPin,
+  CheckCircle,
 } from "lucide-react";
 import { useState } from "react";
 
-const differentiators = [
-  { icon: Target, title: "Transport partagé intelligent", description: "Algorithme de regroupement automatique des patients. Conforme au décret février 2025 (détour max 10km, attente max 45min)." },
-  { icon: Building, title: "Portail établissement", description: "Back-office complet pour les secrétariats médicaux : planning, matching, reporting ARS/CPAM." },
-  { icon: Layers, title: "Multi-transporteur", description: "Seule plateforme regroupant taxi conventionné, VSL et ambulance dans une seule interface." },
-  { icon: HeartHandshake, title: "Triple valeur", description: "Réduit les coûts établissement, l’attente patient ET les temps morts transporteur." },
-  { icon: Scale, title: "Conforme décret 2025", description: "Aligné sur les objectifs réglementaires : 50% de transport partagé, reporting, tiers payant conditionnel." },
-  { icon: ShieldCheck, title: "Sécurité maximale", description: "Chiffrement AES-256, TLS 1.3, conforme RGPD. Hébergement HDS recommandé." },
+const constatCards = [
+  {
+    icon: Clock,
+    who: "Patients",
+    title: "Des heures d'attente inutiles",
+    description:
+      "Attendre seul sur un brancard qu'un taxi arrive, enchaîner les retards, ne pas savoir quand on rentre chez soi. Le transport médical est souvent une source de stress supplémentaire pour des patients déjà fragilisés.",
+  },
+  {
+    icon: Phone,
+    who: "Secrétariats",
+    title: "Des journées passées au téléphone",
+    description:
+      "Appeler un par un les transporteurs, jongler entre les disponibilités, gérer les annulations de dernière minute. Les secrétariats médicaux perdent un temps précieux qui devrait être consacré aux patients.",
+  },
+  {
+    icon: CalendarX,
+    who: "Transporteurs",
+    title: "Des plannings pleins de trous",
+    description:
+      "Des courses mal réparties dans la journée, des retours à vide, des créneaux impossibles à remplir. Les taxis conventionnés et ambulanciers subissent un système qui ne leur permet pas de travailler efficacement.",
+  },
 ];
 
-const objectives = [
-  { period: "3 mois", etablissements: "3-5", patients: "200-400", transporteurs: "30", courses: "500/mois", partage: "15%" },
-  { period: "6 mois", etablissements: "15-25", patients: "1 000-2 000", transporteurs: "100", courses: "2 000/mois", partage: "30%" },
-  { period: "12 mois", etablissements: "50-100", patients: "5 000-10 000", transporteurs: "400", courses: "10 000/mois", partage: "45%" },
+const valeurs = [
+  {
+    icon: Smile,
+    title: "Simplicité",
+    description:
+      "Une plateforme intuitive, pensée pour le terrain. Pas besoin de formation : quelques clics suffisent pour organiser un transport.",
+  },
+  {
+    icon: Heart,
+    title: "Triple bénéfice",
+    description:
+      "Chaque acteur y gagne : moins d'attente pour les patients, moins d'appels pour les secrétariats, plus de courses pour les transporteurs.",
+  },
+  {
+    icon: Scale,
+    title: "Conformité",
+    description:
+      "Aligné avec le décret de février 2025 sur le transport partagé. MediTrajet vous aide à atteindre les objectifs réglementaires sans effort.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Confiance & sécurité",
+    description:
+      "Vos données de santé sont protégées par un chiffrement de bout en bout et hébergées en France, conformément au RGPD.",
+  },
 ];
 
-const securityItems = [
-  { icon: Lock, title: "Chiffrement", description: "AES-256 au repos, TLS 1.3 en transit. Toutes les données sensibles sont chiffrées." },
-  { icon: ShieldCheck, title: "Conformité RGPD", description: "Consentement explicite, minimisation des données, droits d'accès et suppression." },
-  { icon: Server, title: "Hébergement HDS", description: "Hébergeur de Données de Santé recommandé pour les données médicales." },
-  { icon: Scale, title: "Audit & traçabilité", description: "Journalisation de toutes les actions critiques. Protection contre les failles OWASP." },
+const stats = [
+  { value: "12", label: "Établissements partenaires", icon: Building },
+  { value: "3", label: "Acteurs connectés en 1 plateforme", icon: Users },
+  { value: "100%", label: "Conforme décret 2025", icon: CheckCircle },
+  { value: "France", label: "Hébergement des données", icon: MapPin },
 ];
 
 export default function AProposPage() {
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", role: "patient", message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    role: "patient",
+    message: "",
+  });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -65,7 +108,9 @@ export default function AProposPage() {
       if (!res.ok) throw new Error("Erreur");
       setSubmitted(true);
     } catch {
-      setError("Une erreur est survenue. Réessayez ou contactez-nous à contact@meditrajet.fr");
+      setError(
+        "Une erreur est survenue. Réessayez ou contactez-nous à contact@meditrajet.fr"
+      );
     } finally {
       setLoading(false);
     }
@@ -78,21 +123,32 @@ export default function AProposPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
-              <h1 className="text-4xl sm:text-5xl font-bold text-dark mb-6">
-                Notre <span className="text-primary">mission</span>
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary font-medium px-4 py-1.5 rounded-full text-sm mb-6">
+                <Sparkles className="w-4 h-4" />
+                Notre mission
+              </div>
+              <h1 className="text-4xl sm:text-5xl font-bold text-dark mb-6 leading-tight">
+                Simplifier le transport médical{" "}
+                <span className="text-primary">pour tous</span>
               </h1>
               <p className="text-lg text-gray-500 leading-relaxed">
-                Le transport médical coûte 6,3 milliards d&apos;euros par an à l&apos;Assurance Maladie,
-                pour 6,4 millions de patients. L&apos;État impose désormais 50% de transport partagé
-                d&apos;ici 2026. Notre mission : fournir aux établissements de santé la plateforme
-                qui rend ce transport partagé opérationnel, au bénéfice des patients et des transporteurs.
+                Chaque jour, des milliers de patients attendent leur transport,
+                des secrétariats médicaux passent des heures au téléphone et des
+                transporteurs roulent avec des plannings à moitié vides.
+              </p>
+              <p className="text-lg text-gray-500 leading-relaxed mt-4">
+                MediTrajet est né d&apos;un constat simple :{" "}
+                <strong className="text-dark">
+                  en connectant ces trois acteurs sur une seule plateforme
+                </strong>
+                , on peut transformer l&apos;expérience de chacun.
               </p>
             </div>
             <div className="relative hidden lg:block">
               <div className="relative w-full aspect-[4/3] max-w-lg mx-auto rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/images/hero-about.jpg"
-                  alt="Équipe collaborant pour améliorer le transport médical"
+                  alt="Collaboration pour améliorer le transport médical"
                   fill
                   className="object-cover"
                 />
@@ -103,89 +159,79 @@ export default function AProposPage() {
         </div>
       </section>
 
-      {/* Differentiators */}
+      {/* Le constat */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            tag="Ce qui nous distingue"
-            title="Pourquoi MediTrajet ?"
+            tag="Le constat"
+            title="Un système qui ne fonctionne plus"
           />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {differentiators.map((d, i) => (
-              <div key={i} className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-md transition-all">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                  <d.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-lg font-bold text-dark mb-2">{d.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{d.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Objectives */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            tag="Objectifs"
-            title="Notre feuille de route"
-            description="Des objectifs ambitieux mais atteignables pour transformer le transport médical."
-          />
-          <div className="grid md:grid-cols-3 gap-6">
-            {objectives.map((obj, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-                <div className="text-center mb-6">
-                  <span className="inline-block bg-primary/10 text-primary font-bold px-4 py-1.5 rounded-full text-sm">
-                    {obj.period}
+          <div className="grid md:grid-cols-3 gap-8">
+            {constatCards.map((card, i) => (
+              <div
+                key={i}
+                className="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:border-primary/30 hover:shadow-md transition-all"
+              >
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                    <card.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <span className="text-xs font-bold text-primary uppercase tracking-wider">
+                    {card.who}
                   </span>
                 </div>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500 flex items-center gap-2"><Building className="w-4 h-4" /> Établissements</span>
-                    <span className="font-bold text-dark">{obj.etablissements}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500 flex items-center gap-2"><Users className="w-4 h-4" /> Patients</span>
-                    <span className="font-bold text-dark">{obj.patients}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500 flex items-center gap-2"><Ambulance className="w-4 h-4" /> Transporteurs</span>
-                    <span className="font-bold text-dark">{obj.transporteurs}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500 flex items-center gap-2"><TrendingUp className="w-4 h-4" /> Courses</span>
-                    <span className="font-bold text-dark">{obj.courses}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500 flex items-center gap-2"><Target className="w-4 h-4" /> Taux partagé</span>
-                    <span className="font-bold text-primary">{obj.partage}</span>
-                  </div>
-                </div>
+                <h3 className="text-lg font-bold text-dark mb-3">
+                  {card.title}
+                </h3>
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  {card.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Security */}
-      <section className="py-20 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Notre approche */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            tag="Sécurité & conformité"
-            title="Vos données sont protégées"
-            description="La sécurité des données de santé est au coeur de notre architecture."
+            tag="Notre approche"
+            title="La technologie au service de l'humain"
+            description="Nous croyons que la technologie doit simplifier la vie des gens, pas la compliquer."
           />
           <div className="grid sm:grid-cols-2 gap-6">
-            {securityItems.map((item, i) => (
-              <div key={i} className="flex items-start gap-4 bg-gray-50 rounded-xl p-5 border border-gray-100">
-                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                  <item.icon className="w-5 h-5 text-primary" />
+            {valeurs.map((v, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/30 hover:shadow-md transition-all"
+              >
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5">
+                  <v.icon className="w-6 h-6 text-primary" />
                 </div>
-                <div>
-                  <h3 className="font-bold text-dark mb-1">{item.title}</h3>
-                  <p className="text-sm text-gray-500">{item.description}</p>
+                <h3 className="text-lg font-bold text-dark mb-2">{v.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  {v.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Chiffres clés */}
+      <section className="py-16 bg-primary">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, i) => (
+              <div key={i} className="text-center">
+                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <stat.icon className="w-6 h-6 text-white" />
                 </div>
+                <div className="text-3xl sm:text-4xl font-bold text-white mb-1">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-white/70">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -206,72 +252,118 @@ export default function AProposPage() {
               <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Mail className="w-8 h-8 text-secondary" />
               </div>
-              <h3 className="text-xl font-bold text-dark mb-2">Message envoyé !</h3>
-              <p className="text-gray-500">Nous vous recontacterons <strong>sous 24h</strong>.</p>
+              <h3 className="text-xl font-bold text-dark mb-2">
+                Message envoyé !
+              </h3>
+              <p className="text-gray-500">
+                Nous vous recontacterons <strong>sous 24h</strong>.
+              </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm space-y-6">
+            <form
+              onSubmit={handleSubmit}
+              className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm space-y-6"
+            >
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-dark mb-2">Nom complet *</label>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-semibold text-dark mb-2"
+                  >
+                    Nom complet *
+                  </label>
                   <input
                     type="text"
                     id="name"
                     required
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-dark"
                     placeholder="Votre nom"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-dark mb-2">Email *</label>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-semibold text-dark mb-2"
+                  >
+                    Email *
+                  </label>
                   <input
                     type="email"
                     id="email"
                     required
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-dark"
                     placeholder="votre@email.com"
                   />
                 </div>
               </div>
               <div>
-                <label htmlFor="phone" className="block text-sm font-semibold text-dark mb-2">Téléphone</label>
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-semibold text-dark mb-2"
+                >
+                  Téléphone
+                </label>
                 <input
                   type="tel"
                   id="phone"
                   value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, phone: e.target.value })
+                  }
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-dark"
                   placeholder="06 12 34 56 78"
                 />
               </div>
               <div>
-                <label htmlFor="role" className="block text-sm font-semibold text-dark mb-2">Vous êtes</label>
+                <label
+                  htmlFor="role"
+                  className="block text-sm font-semibold text-dark mb-2"
+                >
+                  Vous êtes
+                </label>
                 <select
                   id="role"
                   value={formData.role}
-                  onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, role: e.target.value })
+                  }
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-dark bg-white"
                 >
-                  <option value="directeur">Directeur / gestionnaire établissement</option>
+                  <option value="directeur">
+                    Directeur / gestionnaire établissement
+                  </option>
                   <option value="secretariat">Secrétariat médical</option>
                   <option value="patient">Patient</option>
-                  <option value="transporteur">Transporteur conventionné</option>
+                  <option value="transporteur">
+                    Transporteur conventionné
+                  </option>
                   <option value="partenaire">Partenaire / Investisseur</option>
                   <option value="autre">Autre</option>
                 </select>
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-dark mb-2">Message</label>
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-semibold text-dark mb-2"
+                >
+                  Message
+                </label>
                 <textarea
                   id="message"
                   required
                   rows={4}
                   value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none text-dark"
                   placeholder="Votre message..."
                 />
@@ -284,10 +376,22 @@ export default function AProposPage() {
                   className="mt-1 w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary"
                 />
                 <span className="text-xs text-gray-500">
-                  J&apos;accepte que mes données soient traitées conformément à la <a href="/politique-de-confidentialite" className="underline text-primary">politique de confidentialité</a>.
+                  J&apos;accepte que mes données soient traitées conformément à
+                  la{" "}
+                  <a
+                    href="/politique-de-confidentialite"
+                    className="underline text-primary"
+                  >
+                    politique de confidentialité
+                  </a>
+                  .
                 </span>
               </label>
-              {error && <p className="text-red-600 text-sm bg-red-50 p-3 rounded-lg">{error}</p>}
+              {error && (
+                <p className="text-red-600 text-sm bg-red-50 p-3 rounded-lg">
+                  {error}
+                </p>
+              )}
               <button
                 type="submit"
                 disabled={loading}
