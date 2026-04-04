@@ -22,6 +22,7 @@ import {
   Heart,
   Search,
   Calendar,
+  MessageSquare,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -31,12 +32,12 @@ export const metadata: Metadata = {
 };
 
 const features = [
-  { icon: ClipboardList, title: "Planning multi-patients", description: "Programmez les transports de tous vos patients du jour depuis un seul portail web. Vue liste et calendrier.", color: "primary" as const },
-  { icon: Users, title: "Matching partagé automatique", description: "L’algorithme regroupe automatiquement les patients compatibles : même créneau, même zone, mêmes besoins.", color: "primary" as const },
-  { icon: BarChart3, title: "Dashboard taux de partage", description: "Taux de transport partagé en temps réel. Objectif 50% visualisé. Export rapports pour l’ARS et la CPAM.", color: "primary" as const },
-  { icon: ShieldCheck, title: "Conformité décret 2025", description: "Détour max 10 km, attente max 45 min, contre-indications médicales gérées. 100% conforme aux règles.", color: "secondary" as const },
-  { icon: Zap, title: "Notifications multi-acteurs", description: "Secrétariat, patient, aidants et transporteur notifiés en temps réel. Alertes retard automatiques.", color: "secondary" as const },
-  { icon: FileCheck, title: "Multi-services, multi-secrétaires", description: "Dialyse, radiothérapie, hôpital de jour… chaque service a sa vue. Droits d’accès par rôle.", color: "secondary" as const },
+  { icon: Zap, title: "Génération auto des courses", description: "Fini la saisie manuelle. Indiquez le besoin (ex : dialyse 3x/semaine) et le système génère automatiquement toutes les courses. Récurrences, modifications, annulations : tout est géré.", color: "secondary" as const },
+  { icon: FileCheck, title: "Prescriptions & bons de transport", description: "Importez ou scannez les prescriptions médicales. Extraction automatique des infos patient, trajet et fréquence. Alertes avant expiration.", color: "primary" as const },
+  { icon: Users, title: "Portefeuille patients", description: "Fiche patient complète : historique des transports, besoins spécifiques (fauteuil, brancardage, oxygène). Gestion des aidants désignés pour recevoir les notifications.", color: "primary" as const },
+  { icon: Calendar, title: "Planning & vue agenda", description: "Vue agenda par patient ou par service. Programmez les transports de tous vos patients depuis un seul portail. Vue liste et calendrier.", color: "primary" as const },
+  { icon: MessageSquare, title: "Communication & notifications", description: "Messagerie interne avec les transporteurs. Notifications automatiques aux patients : rappel J-1, heure d’arrivée du véhicule, alertes retard.", color: "primary" as const },
+  { icon: BarChart3, title: "Reporting & statistiques", description: "Stats par patient (transports, coût, remboursements) et par service (volume, transporteurs). Export rapports ARS/CPAM.", color: "primary" as const },
 ];
 
 const regulation = [
@@ -47,11 +48,11 @@ const regulation = [
 ];
 
 const journeySteps = [
-  { icon: Search, label: "Découverte", text: "Votre établissement découvre MediTrajet (démo, ANAP, recommandation)" },
-  { icon: Calendar, label: "Configuration", text: "On configure vos services, patients, horaires de soins et transporteurs" },
-  { icon: ClipboardList, label: "Programmation", text: "Sophie programme les 80 transports du lundi en 15 minutes" },
-  { icon: Users, label: "Matching partagé", text: "Marie 14h et Robert 14h15 sont automatiquement groupés dans le même taxi" },
-  { icon: BarChart3, label: "Résultat", text: "Taux de partage à 45%, reporting ARS automatique, économies mesurées" },
+  { icon: Search, label: "Découverte", text: "Votre établissement découvre MediTrajet (démo, recommandation, contact ANAP)" },
+  { icon: Calendar, label: "Configuration", text: "On configure vos services, patients, horaires de soins et transporteurs partenaires" },
+  { icon: FileCheck, label: "Import prescriptions", text: "Sophie scanne les prescriptions de ses 80 patients. Les infos sont extraites automatiquement" },
+  { icon: Zap, label: "Génération auto", text: "Elle indique : M. Dupont fait 3 dialyses/semaine. Le système génère toutes les courses du mois automatiquement" },
+  { icon: BarChart3, label: "Résultat", text: "80 transports programmés en 15 min, reporting ARS automatique, zéro appel téléphonique" },
 ];
 
 const segments = [
