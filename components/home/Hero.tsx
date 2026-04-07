@@ -10,6 +10,7 @@ const audiences = [
     desc: "Organisez 80 transports en 15 min",
     cta: "Demander une démo",
     image: "/images/card-etablissement.jpg",
+    imagePosition: "object-[center_70%]",
     accent: "bg-blue-600",
     ring: "ring-blue-600/20",
   },
@@ -104,7 +105,7 @@ export default function Hero() {
                     src={a.image}
                     alt={a.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className={`object-cover group-hover:scale-105 transition-transform duration-500 ${a.imagePosition || ""}`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                 </div>
