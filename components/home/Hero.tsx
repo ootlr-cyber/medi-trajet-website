@@ -10,7 +10,7 @@ const audiences = [
     desc: "Organisez 80 transports en 15 min",
     cta: "Demander une démo",
     image: "/images/card-etablissement.jpg",
-    imagePosition: "object-[center_70%]",
+    imagePosition: "object-[30%_75%]",
     accent: "bg-blue-600",
     ring: "ring-blue-600/20",
   },
