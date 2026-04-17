@@ -9,7 +9,6 @@ export function OrganizationJsonLd() {
       "Plateforme de transport médical partagé conventionné CPAM. Matching intelligent, suivi GPS temps réel, reporting ARS.",
     legalName: "Outlier Distribution",
     email: "contact@meditrajet.fr",
-    telephone: "+33-1-00-00-00-00",
     foundingDate: "2024",
     areaServed: {
       "@type": "Country",

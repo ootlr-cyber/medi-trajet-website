@@ -51,10 +51,11 @@ export async function POST(req: NextRequest) {
     }
 
     const resend = new Resend(process.env.RESEND_API_KEY);
+    const fromAddress = process.env.RESEND_FROM || "MediTrajet <contact@meditrajet.fr>";
 
     // Email de notification interne
     await resend.emails.send({
-      from: "MediTrajet <onboarding@resend.dev>",
+      from: fromAddress,
       to: ["contact@meditrajet.fr"],
       subject: `Nouveau contact : ${name} (${roleLabels[role] || role})`,
       html: `
@@ -74,8 +75,8 @@ export async function POST(req: NextRequest) {
 
     // Email de confirmation au prospect
     await resend.emails.send({
-      from: "MediTrajet <onboarding@resend.dev>",
-      to: [email],
+      from: fromAddress,
+      to: [rawEmail],
       subject: "Votre demande a bien été reçue - MediTrajet",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px;">

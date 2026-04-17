@@ -2317,7 +2317,7 @@ export const guidesDB: GuideData[] = [
         id: "contenu-decret",
         title: "Contenu du décret de février 2025",
         content: [
-          "Le décret n° 2025-XXX du XX février 2025 relatif au transport sanitaire partagé modifie l'article R.322-10 du Code de la Sécurité sociale. Il introduit l'obligation du transport partagé pour les soins itératifs à compter du 1er janvier 2026, avec une phase de mise en œuvre progressive en 2025.",
+          "Le décret relatif au transport sanitaire partagé publié en février 2025 modifie l'article R.322-10 du Code de la Sécurité sociale. Il introduit l'obligation du transport partagé pour les soins itératifs à compter du 1er janvier 2026, avec une phase de mise en œuvre progressive en 2025.",
           "Le transport partagé consiste à regrouper plusieurs patients dans un même véhicule sanitaire (VSL ou taxi conventionné) pour des trajets vers le même établissement de santé ou des établissements proches géographiquement. L'objectif est de réduire le nombre de trajets à vide et de diminuer le coût global du transport sanitaire pour l'Assurance Maladie.",
           "Le décret définit les soins itératifs concernés : dialyse, chimiothérapie, radiothérapie, rééducation fonctionnelle, et tout traitement nécessitant au moins 4 transports sur 2 mois. Les transports ponctuels (consultations isolées, hospitalisations) ne sont pas concernés.",
           "Le texte prévoit un mécanisme d'incitation financière pour les transporteurs : une prime de coordination est versée aux sociétés de transport qui organisent effectivement le transport partagé. Cette prime compense le temps supplémentaire de coordination et d'organisation."
